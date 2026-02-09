@@ -41,6 +41,7 @@ export default function RootLayout({
         className={`${poppins.variable} ${poppins.variable} antialiased max-w-360 mx-auto`}
       >
         <div className="bg-white border-x border-gray-200 ">
+          
         <Navbar />
         {children }
         </div>

@@ -5,6 +5,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Button from '../component/button1';
 import { useRef } from "react";
+import Store from '../component/store';
+import StatsFeatures from '../component/statsFeatures';
+import Blog from '../component/FeaturedArticle';
 
 const Hero = () => {
   const imgRef = useRef(null);
@@ -15,7 +18,7 @@ const Hero = () => {
   
   const yImg = useTransform(scrollYProgress, [0, 1], [0, -400]);
   return (
-     <div className='flex flex-col items-center justify-center w-full h-fit'>
+     <div className='flex flex-col  items-center justify-center w-full h-fit'>
        {/* EMPTY DIV */}
        <div className='h-49'></div>
 
@@ -123,6 +126,38 @@ const Hero = () => {
                 </div>
 
             </section>
+
+        {/* STORE */}
+        <section className='mt-30 mb-10'>
+             <div className='h-57.5 '>
+                <button className='px-4 py-2 bg-gray-200 rounded-full mb-9'>Store</button>
+                <div className='flex justify-between items-end h-26 text-black'>
+                    <h2 className='font-serif text-5xl/14 font-medium text-black'> Find Products That Perfectly Match <br/><span className='text-gray-600'>Your Lifestyle</span> </h2>
+                    <Button variant='secondary'>View All</Button>
+                </div>
+             </div>
+            <Store />
+        </section>
+
+        {/* STATS AND FEATURES */}
+        <section className='mt-50 mb-30 '>
+            <StatsFeatures />
+        </section>
+
+
+        {/* BLOG */}
+        <section className='w-full mt-10 mb-30'>
+             <div className='h-57.5 '>
+                <button className='px-4 py-2 bg-gray-200 rounded-full mb-9'>Blog</button>
+                <div className='flex justify-between items-end h-26 text-black'>
+                    <h2 className='font-serif text-5xl/14 font-medium text-black'> Explore Beauty Reads Tailored to <br/><span className='text-gray-600'>Your Lifestyle</span> </h2>
+                    <Button variant='secondary'>View All</Button>
+                </div>
+             </div>
+            <Blog />
+        </section>
+
+
      </div>
   )
 }
