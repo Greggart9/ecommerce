@@ -34,7 +34,7 @@ export default function ScrollCircleGallery() {
 
   const { scrollY } = useScroll()
   const rotate = useMotionValue(0)
-  const smoothRotate = useSpring(rotate, { stiffness: 10, damping: 100 })
+  const smoothRotate = useSpring(rotate, { stiffness: 10, damping: 10 })
   const lastY = useRef(0)
 
   useMotionValueEvent(scrollY, 'change', (latest) => {

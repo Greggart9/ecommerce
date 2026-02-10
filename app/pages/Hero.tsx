@@ -8,6 +8,8 @@ import { useRef } from "react";
 import Store from '../component/store';
 import StatsFeatures from '../component/statsFeatures';
 import Blog from '../component/FeaturedArticle';
+import FAQs from '../component/faqs';
+import Footer from '../component/footer';
 
 const Hero = () => {
   const imgRef = useRef(null);
@@ -109,9 +111,8 @@ const Hero = () => {
 
         </motion.div>
 
-
         {/* ABOUT US */}
-            <section className='w-full -mt-80 pt-50 pb-25  flex justify-center items-center'>
+        <section className='w-full -mt-80 pt-50 pb-25  flex justify-center items-center'>
                 <div className=' flex justify-between w-full items-start
                  text-black'>
                     <button className='px-4 py-2 bg-gray-200 rounded-full'>About us</button>
@@ -125,7 +126,7 @@ const Hero = () => {
                     </p>
                 </div>
 
-            </section>
+        </section>
 
         {/* STORE */}
         <section className='mt-30 mb-10'>
@@ -144,7 +145,6 @@ const Hero = () => {
             <StatsFeatures />
         </section>
 
-
         {/* BLOG */}
         <section className='w-full mt-10 mb-30'>
              <div className='h-57.5 '>
@@ -157,6 +157,11 @@ const Hero = () => {
             <Blog />
         </section>
 
+        {/* FAQS */}
+        <FAQs />
+
+        {/* FOOTER */}
+        <Footer />
 
      </div>
   )
