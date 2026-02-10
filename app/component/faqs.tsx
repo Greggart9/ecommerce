@@ -58,7 +58,7 @@ const FAQs = () => {
               </section>
 
 
-    <section className="mx-auto max-w-2xl px-6 py-20">
+    <section className="mx-auto max-w-2xl px-6 py-15">
       <div className="space-y-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index

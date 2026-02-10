@@ -19,7 +19,7 @@ export default function Button({
 
   const variantClasses =
     variant === "primary"
-      ? "bg-black text-white border-black hover:bg-white hover:text-black"
+      ? "bg-black text-white border-black hover:bg-transparent hover:text-black"
       : "bg-white text-black border-black hover:bg-black hover:text-white"
 
   return (
