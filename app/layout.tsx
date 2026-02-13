@@ -36,9 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={poppins.variable} suppressHydrationWarning>
       <body
-        className={`${poppins.variable} ${poppins.variable} antialiased max-w-360 mx-auto`}
+        className={`${poppins.variable} antialiased max-w-360 mx-auto`}
+        suppressHydrationWarning
       >
         <div className="bg-white border-x border-gray-200 ">
           

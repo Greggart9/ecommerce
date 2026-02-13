@@ -26,9 +26,7 @@ export default function Button({
     <button onClick={onClick} className={`${baseClasses} ${variantClasses}`}>
       <span>{children}</span>
 
-      <motion.span
-        className="inline-flex transition duration-450 ease-in group-hover:-rotate-45"
-      >
+      <motion.span className="inline-flex transition duration-450 ease-in group-hover:-rotate-45">
         <ArrowRight className="h-4 w-4" />
       </motion.span>
     </button>

@@ -50,9 +50,7 @@ export default function ScrollCircleGallery() {
     >
       {/* Rotating circle */}
       <motion.div
-        style={{
-          rotate: smoothRotate,
-        }}
+        style={{ rotate: smoothRotate }}
         className="relative w-375 h-375 flex items-center justify-center rounded-full"
       >
         {images.map((src, i) => {
@@ -73,11 +71,7 @@ export default function ScrollCircleGallery() {
               }}
             >
               <div className="w-24 h-24 rounded-full overflow-hidden bg-neutral-100 shadow-md">
-                <img
-                  src={src}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
+                <img src={src} alt="" className="w-full h-full object-cover" />
               </div>
             </div>
           )
@@ -86,7 +80,7 @@ export default function ScrollCircleGallery() {
 
       {/* Center content */}
       <div className="absolute text-center max-w-md">
-      <button className='px-4 py-2 bg-gray-200 rounded-full mb-7'>Stats</button>
+        <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">Stats</button>
 
         <h2 className="text-5xl font-serif leading-tight">
           1200+ Products Got
@@ -97,8 +91,9 @@ export default function ScrollCircleGallery() {
         <p className="mt-6 mb-8 text-neutral-600">
           “At Essential, we believe beauty should <br /> feel effortless and empowering.”
         </p>
-         <Button variant='primary'>Store</Button>
-         
+        <Button onClick={() => (window.location.href = '/store')} variant="primary">
+          Store
+        </Button>
       </div>
     </section>
   )

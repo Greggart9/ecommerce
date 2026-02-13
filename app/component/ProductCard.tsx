@@ -72,12 +72,8 @@ export default function ProductCard({
       {/* Content */}
       <div className="p-4 space-y-3">
         <div>
-          <h3 className="text-sm font-medium text-neutral-900">
-            {title}
-          </h3>
-          <p className="text-xs text-neutral-500">
-            {brand}
-          </p>
+          <h3 className="text-sm font-medium text-neutral-900">{title}</h3>
+          <p className="text-xs text-neutral-500">{brand}</p>
         </div>
 
         <button

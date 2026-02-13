@@ -34,76 +34,74 @@ const faqs = [
 ]
 
 const FAQs = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
 
-    const [openIndex, setOpenIndex] = useState<number | null>(0)
   return (
-    <div className='mb-30'>
-              {/* FEATURES */}
-              <section className=''>
-                  <div>
-                      <div className="flex flex-col items-center justify-center lg:sticky lg:top-24">
-                          <button className='px-4 py-2 bg-gray-200 rounded-full mb-7'>FAQs</button>
-      
-                          <h1 className='mt-6 text-5xl/16 font-serif font-normal text-black text-center'> 
-                              Your Questions <span className='text-gray-600'>Answered</span>
-                          </h1> 
-      
-                          <p className='mt-6 mb-8 font-medium text-lg text-gray-600 text-center max-w-sm'>
-                              Here are the most common questions customers ask before buying from us. 
-                          </p>
-                          
-                          <Button variant='secondary'>Get in Touch</Button>
-                      </div>
-                  </div>
-              </section>
+    <div className="mb-30">
+      {/* FEATURES */}
+      <section>
+        <div className="flex flex-col items-center justify-center lg:sticky lg:top-24">
+          <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
+            FAQs
+          </button>
 
+          <h1 className="mt-6 text-5xl/16 font-serif font-normal text-black text-center">
+            Your Questions <span className="text-gray-600">Answered</span>
+          </h1>
 
-    <section className="mx-auto max-w-2xl px-6 py-15">
-      <div className="space-y-4">
-        {faqs.map((faq, index) => {
-          const isOpen = openIndex === index
+          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center max-w-sm">
+            Here are the most common questions customers ask before buying from us.
+          </p>
 
-          return (
-            <div
-              key={index}
-              className="rounded-2xl border border-black/5 bg-gray-100 transition-all"
-            >
-              <button
-                onClick={() =>
-                  setOpenIndex(isOpen ? null : index)
-                }
-                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-              >
-                <span className="text-base font-medium text-gray-900">
-                  {faq.question}
-                </span>
+          <Button onClick={() => (window.location.href = '/support')} variant="secondary">
+            Get in Touch
+          </Button>
+        </div>
+      </section>
 
-                <ChevronDown
-                  className={clsx(
-                    'h-5 w-5 transition-transform duration-300',
-                    isOpen && 'rotate-180'
-                  )}
-                />
-              </button>
+      <section className="mx-auto max-w-2xl px-6 py-15">
+        <div className="space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
 
+            return (
               <div
-                className={clsx(
-                  'grid overflow-hidden px-6 transition-all duration-300',
-                  isOpen
-                    ? 'grid-rows-[1fr] pb-5 opacity-100'
-                    : 'grid-rows-[0fr] opacity-0'
-                )}
+                key={index}
+                className="rounded-2xl border border-black/5 bg-gray-100 transition-all"
               >
-                <p className="overflow-hidden text-sm leading-relaxed text-gray-600">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </section>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                >
+                  <span className="text-base font-medium text-gray-900">
+                    {faq.question}
+                  </span>
 
+                  <ChevronDown
+                    className={clsx(
+                      'h-5 w-5 transition-transform duration-300',
+                      isOpen && 'rotate-180'
+                    )}
+                  />
+                </button>
+
+                <div
+                  className={clsx(
+                    'grid overflow-hidden px-6 transition-all duration-300',
+                    isOpen
+                      ? 'grid-rows-[1fr] pb-5 opacity-100'
+                      : 'grid-rows-[0fr] opacity-0'
+                  )}
+                >
+                  <p className="overflow-hidden text-sm leading-relaxed text-gray-600">
+                    {faq.answer}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
     </div>
   )
 }

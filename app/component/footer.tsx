@@ -1,10 +1,12 @@
+"use client"
+
 import Image from 'next/image'
 import { FaLinkedin, FaUpwork, FaXTwitter } from 'react-icons/fa6'
 import Button from './button1'
 
-const footer = () => {
-  return (
-        <div className='w-full'>
+const Footer = () => {
+    return (
+        <div className="w-full">
             {/* THE IMAGE SEC */}
             <section
                 className="relative overflow-hidden rounded-3xl bg-cover w-full bg-center px-8 py-28"
@@ -25,17 +27,16 @@ const footer = () => {
                     <div className="flex justify-center items-center gap-3">
                         {/* Avatars */}
                         <div className="flex -space-x-2">
-                            {["/assets/asset1.png", "/assets/asset2.png", "/assets/asset3.jpeg"].map((src, i) => (
+                            {[
+                                '/assets/asset1.png',
+                                '/assets/asset2.png',
+                                '/assets/asset3.jpeg',
+                            ].map((src, i) => (
                                 <div
                                     key={i}
                                     className="relative w-8 h-8 rounded-full overflow-hidden border-3 border-white/50"
                                 >
-                                    <Image
-                                        src={src}
-                                        alt="Customer"
-                                        fill
-                                        className="object-cover"
-                                    />
+                                    <Image src={src} alt="Customer" fill className="object-cover" />
                                 </div>
                             ))}
                         </div>
@@ -56,15 +57,19 @@ const footer = () => {
 
                     {/* CTA */}
                     <div className="mt-10">
-                         <Button variant='primary'>Store</Button>
+                        <Button
+                            onClick={() => (window.location.href = '/store')}
+                            variant="primary"
+                        >
+                            Store
+                        </Button>
                     </div>
                 </div>
             </section>
 
             {/* INFO SEC */}
-            <section className="mx-auto py-20">
+            <section className="mx-auto mt-30 py-20">
                 <div className="grid gap-12 lg:grid-cols-[4fr_1fr_1fr_1fr]">
-
                     {/* Brand + copy */}
                     <div className="space-y-6">
                         <img
@@ -79,15 +84,23 @@ const footer = () => {
                             online presence and drive more sales.
                         </p>
                         <div className="flex items-center gap-1 text-neutral-700 -mt-5">
-                                <a href="https://x.com/Oluwad_amilare" aria-label="X" className="p-2">
-                                    <FaXTwitter className="h-4 w-4" />
-                                </a>
-                                <a href="https://www.linkedin.com/in/oluwadamilaregreggart9/" aria-label="LinkedIn" className="p-2">
-                                    <FaLinkedin className="h-4 w-4" />
-                                </a>
-                                <a href="https://www.upwork.com/freelancers/~01f4206c2db39023fa" aria-label="Upwork" className="p-2">
-                                    <FaUpwork className="h-4 w-4" />
-                                </a>
+                            <a href="https://x.com/Oluwad_amilare" aria-label="X" className="p-2">
+                                <FaXTwitter className="h-4 w-4" />
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/oluwadamilaregreggart9/"
+                                aria-label="LinkedIn"
+                                className="p-2"
+                            >
+                                <FaLinkedin className="h-4 w-4" />
+                            </a>
+                            <a
+                                href="https://www.upwork.com/freelancers/~01f4206c2db39023fa"
+                                aria-label="Upwork"
+                                className="p-2"
+                            >
+                                <FaUpwork className="h-4 w-4" />
+                            </a>
                         </div>
                     </div>
 
@@ -95,11 +108,21 @@ const footer = () => {
                     <div className="space-y-6">
                         <h3 className="text-base font-semibold text-neutral-900">Main Pages</h3>
                         <ul className="space-y-6 text-neutral-600">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/store">Store</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/our-methods">Our methods</a></li>
-                            <li><a href="/support">Support</a></li>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/store">Store</a>
+                            </li>
+                            <li>
+                                <a href="/blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="/our-methods">Our methods</a>
+                            </li>
+                            <li>
+                                <a href="/support">Support</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -107,10 +130,18 @@ const footer = () => {
                     <div className="space-y-6">
                         <h3 className="text-base font-semibold text-neutral-900">Other Pages</h3>
                         <ul className="space-y-6 text-neutral-600">
-                            <li><a href="/product">Product</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/expert">Expert</a></li>
-                            <li><a href="/404">404</a></li>
+                            <li>
+                                <a href="/product">Product</a>
+                            </li>
+                            <li>
+                                <a href="/blog">Blog</a>
+                            </li>
+                            <li>
+                                <a href="/expert">Expert</a>
+                            </li>
+                            <li>
+                                <a href="/404">404</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -118,22 +149,28 @@ const footer = () => {
                     <div className="space-y-6">
                         <h3 className="text-base font-semibold text-neutral-900">Information</h3>
                         <ul className="space-y-6 text-neutral-600">
-                            <li><a href="/privacy">Privacy policy</a></li>
-                            <li><a href="/terms">Terms &amp; conditions</a></li>
-                            <li><a href="/returns">Return policy</a></li>
+                            <li>
+                                <a href="/privacy">Privacy policy</a>
+                            </li>
+                            <li>
+                                <a href="/terms">Terms &amp; conditions</a>
+                            </li>
+                            <li>
+                                <a href="/returns">Return policy</a>
+                            </li>
                         </ul>
                     </div>
-
                 </div>
 
                 <div className="mt-16 border-t pt-8 flex flex-col gap-4 text-base font-semibold text-black md:flex-row md:items-center md:justify-between">
                     <p>Copyright © All rights reserved</p>
-                    <p>Developed by <span className='text-gray-600'>Olúwadámiláre</span> </p>
+                    <p>
+                        Developed by <span className="text-gray-600">Olúwadámiláre</span>
+                    </p>
                 </div>
             </section>
 
-
-            {/* BRANDNAME  */}
+            {/* BRANDNAME */}
             <section className="mx-auto w-full overflow-hidden py-12">
                 <div className="text-center mt-20">
                     <h2 className="font-serif text-[16vw] leading-none tracking-wide text-transparent bg-clip-text bg-linear-to-b from-neutral-700 via-neutral-300 to-neutral-100">
@@ -141,10 +178,8 @@ const footer = () => {
                     </h2>
                 </div>
             </section>
-
-
         </div>
     )
 }
 
-export default footer
+export default Footer

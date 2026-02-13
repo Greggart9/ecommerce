@@ -1,11 +1,9 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import ProductCard from './ProductCard'
 import ProductCardSkeleton from './ProductCardSkeleton'
 import { products, type Product } from '../data/products'
-import { useEffect, useState } from 'react'
-
-
 
 export default function ProductsGrid() {
   const [loading, setLoading] = useState(true)

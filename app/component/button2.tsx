@@ -16,7 +16,7 @@ const Button2 = ({
   className = '',
 }: ButtonProps) => {
   const base =
-    ' rounded-lg text-base text-gray-500 font-medium inline-flex items-center justify-center'
+    'rounded-lg text-base text-gray-500 font-medium inline-flex items-center justify-center'
 
   const variants = {
     primary: 'hover:text-black',
