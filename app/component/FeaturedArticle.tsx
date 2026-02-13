@@ -32,7 +32,7 @@ export default function FeaturedArticle() {
             whileHover={{ y: -6 }}
             className="group cursor-pointer rounded-xl border bg-white shadow-sm hover:shadow-lg transition"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-10">
               {/* IMAGE */}
               <div
                 className="relative overflow-hidden rounded-xl"
@@ -42,7 +42,7 @@ export default function FeaturedArticle() {
                 <motion.img
                   src="/assets/asset28.jpeg"
                   alt="Skincare article"
-                  className="h-143 w-174 object-cover rounded-xl"
+                  className="w-full xl:w-174 h-90 md:h-124 xl:h-143 object-cover rounded-xl"
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                 />
@@ -68,13 +68,13 @@ export default function FeaturedArticle() {
                   </span>
 
                   {/* Heading */}
-                  <h2 className="text-3xl md:text-3xl max-w-lg font-serif leading-tight text-neutral-900">
+                  <h2 className="text-xl sm:text-3xl md:text-3xl max-w-lg font-serif leading-tight text-neutral-900">
                     Expert advice and simple routines to keep your skin healthy and
                     glowing every day
                   </h2>
 
                   {/* Description */}
-                  <p className="text-neutral-600 max-w-xl">
+                  <p className="text-neutral-600 pr-6 xl:max-w-xl">
                     Dive into the world of clean, sustainable beauty, where every
                     product is chosen for safety, ethics, and results, helping you
                     feel confident in what you put on your skin.
@@ -106,7 +106,7 @@ export default function FeaturedArticle() {
       </section>
 
       <section className="py-8">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {/* Item 1 */}
           <Link href="/blog/glow-guide" className="group">
             <motion.div

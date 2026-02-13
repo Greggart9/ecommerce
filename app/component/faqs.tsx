@@ -37,19 +37,19 @@ const FAQs = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <div className="mb-30">
+    <div className="mb-20 md:mb-30">
       {/* FEATURES */}
-      <section>
-        <div className="flex flex-col items-center justify-center lg:sticky lg:top-24">
-          <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
+      <section className="px-4 md:px-6">
+        <div className="flex flex-col items-center justify-center">
+          <button className="px-4 py-2 bg-gray-200 rounded-full mb-5 md:mb-7">
             FAQs
           </button>
 
-          <h1 className="mt-6 text-5xl/16 font-serif font-normal text-black text-center">
-            Your Questions <span className="text-gray-600">Answered</span>
+          <h1 className="mt-4 md:mt-6 text-5xl/16 font-serif font-normal text-black text-center">
+            Your Questions <br className="block sm:hidden" /> <span className="text-gray-600">Answered</span>
           </h1>
 
-          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center max-w-sm">
+          <p className="mt-4 md:mt-6 mb-6 md:mb-8 font-medium text-base md:text-lg text-gray-600 text-center max-w-sm">
             Here are the most common questions customers ask before buying from us.
           </p>
 
@@ -59,7 +59,7 @@ const FAQs = () => {
         </div>
       </section>
 
-      <section className="mx-auto max-w-2xl px-6 py-15">
+      <section className="mx-auto max-w-2xl md:px-6 py-10 md:py-15">
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
@@ -71,7 +71,7 @@ const FAQs = () => {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-4 md:px-6 py-5 text-left"
                 >
                   <span className="text-base font-medium text-gray-900">
                     {faq.question}
@@ -87,7 +87,7 @@ const FAQs = () => {
 
                 <div
                   className={clsx(
-                    'grid overflow-hidden px-6 transition-all duration-300',
+                    'grid overflow-hidden px-4 md:px-6 transition-all duration-300',
                     isOpen
                       ? 'grid-rows-[1fr] pb-5 opacity-100'
                       : 'grid-rows-[0fr] opacity-0'

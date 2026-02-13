@@ -5,18 +5,17 @@ import Footer from '../component/footer'
 
 const SupportPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center px-10 w-full pt-25">
+    <div className="flex flex-col items-center justify-center px-6 md:px-10 w-full pt-24">
       {/* FORM */}
-      <section className="w-full max-w-360 py-16">
+      <section className="w-full max-w-360 py-10 md:py-16">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
           {/* LEFT */}
           <div className="space-y-6">
             <button className="px-4 py-2 bg-gray-200 rounded-full">Support</button>
 
-            <h1 className="font-serif text-5xl/14 text-neutral-900">
-              Answers &amp; Limitless
-              <br />
-              <span className="text-neutral-500">Support</span>
+            <h1 className="font-serif  text-5xl/14 text-neutral-900 sm:min-w-md">
+              Answers &amp; <br className="block md:hidden" />Limitless 
+              <span className="text-neutral-500"> Support</span>
             </h1>
 
             <ul className="space-y-4 text-neutral-600">
@@ -44,7 +43,7 @@ const SupportPage = () => {
           </div>
 
           {/* RIGHT */}
-          <div className="rounded-lg border bg-neutral-100 p-8 shadow-sm">
+            <div className="rounded-lg border bg-neutral-100 p-6 md:p-8 shadow-sm">
             <div className="space-y-1">
               <h2 className="text-2xl font-serif font-semibold text-black">
                 Drop Us a Line
@@ -124,7 +123,7 @@ const SupportPage = () => {
       </section>
 
       {/* FAQS */}
-      <section className="mt-35">
+      <section className="mt-25 md:mt-35">
         <FAQs />
       </section>
 

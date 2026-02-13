@@ -19,8 +19,8 @@ const Footer = () => {
                     {/* Heading */}
                     <h1 className="font-serif text-4xl leading-tight text-black md:text-5xl">
                         The Perfect Product Is Just A
-                        <br />
-                        <span className="text-black/50">Click Away</span>
+                        <br className='hidden sm:block' />
+                        <span className="text-black/50"> Click Away</span>
                     </h1>
 
                     {/* CUSTOMER REVIEWS */}
@@ -68,8 +68,8 @@ const Footer = () => {
             </section>
 
             {/* INFO SEC */}
-            <section className="mx-auto mt-30 py-20">
-                <div className="grid gap-12 lg:grid-cols-[4fr_1fr_1fr_1fr]">
+            <section className="mx-auto md:mt-15 lg:mt-30 py-20">
+                <div className="grid gap-12 md:grid-cols-[4fr_3.5fr]">
                     {/* Brand + copy */}
                     <div className="space-y-6">
                         <img
@@ -104,61 +104,64 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Main pages */}
-                    <div className="space-y-6">
-                        <h3 className="text-base font-semibold text-neutral-900">Main Pages</h3>
-                        <ul className="space-y-6 text-neutral-600">
-                            <li>
-                                <a href="/">Home</a>
-                            </li>
-                            <li>
-                                <a href="/store">Store</a>
-                            </li>
-                            <li>
-                                <a href="/blog">Blog</a>
-                            </li>
-                            <li>
-                                <a href="/our-methods">Our methods</a>
-                            </li>
-                            <li>
-                                <a href="/support">Support</a>
-                            </li>
-                        </ul>
-                    </div>
+                    {/* Navigation Links Container */}
+                    <div className="grid gap-12 grid-cols-2 lg:grid-cols-3">
+                        {/* Main pages */}
+                        <div className="space-y-6">
+                            <h3 className="text-base font-semibold text-neutral-900">Main Pages</h3>
+                            <ul className="space-y-6 text-neutral-600">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/store">Store</a>
+                                </li>
+                                <li>
+                                    <a href="/blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/our-methods">Our methods</a>
+                                </li>
+                                <li>
+                                    <a href="/support">Support</a>
+                                </li>
+                            </ul>
+                        </div>
 
-                    {/* Other pages */}
-                    <div className="space-y-6">
-                        <h3 className="text-base font-semibold text-neutral-900">Other Pages</h3>
-                        <ul className="space-y-6 text-neutral-600">
-                            <li>
-                                <a href="/product">Product</a>
-                            </li>
-                            <li>
-                                <a href="/blog">Blog</a>
-                            </li>
-                            <li>
-                                <a href="/expert">Expert</a>
-                            </li>
-                            <li>
-                                <a href="/404">404</a>
-                            </li>
-                        </ul>
-                    </div>
+                        {/* Other pages */}
+                        <div className="space-y-6">
+                            <h3 className="text-base font-semibold text-neutral-900">Other Pages</h3>
+                            <ul className="space-y-6 text-neutral-600">
+                                <li>
+                                    <a href="/product">Product</a>
+                                </li>
+                                <li>
+                                    <a href="/blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="/expert">Expert</a>
+                                </li>
+                                <li>
+                                    <a href="/404">404</a>
+                                </li>
+                            </ul>
+                        </div>
 
-                    {/* Information */}
-                    <div className="space-y-6">
-                        <h3 className="text-base font-semibold text-neutral-900">Information</h3>
-                        <ul className="space-y-6 text-neutral-600">
-                            <li>
-                                <a href="/privacy">Privacy policy</a>
-                            </li>
-                            <li>
-                                <a href="/terms">Terms &amp; conditions</a>
-                            </li>
-                            <li>
-                                <a href="/returns">Return policy</a>
-                            </li>
-                        </ul>
+                        {/* Information */}
+                        <div className="space-y-6">
+                            <h3 className="text-base font-semibold text-neutral-900">Information</h3>
+                            <ul className="space-y-6 text-neutral-600">
+                                <li>
+                                    <a href="/privacy">Privacy policy</a>
+                                </li>
+                                <li>
+                                    <a href="/terms">Terms &amp; conditions</a>
+                                </li>
+                                <li>
+                                    <a href="/returns">Return policy</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -172,7 +175,7 @@ const Footer = () => {
 
             {/* BRANDNAME */}
             <section className="mx-auto w-full overflow-hidden py-12">
-                <div className="text-center mt-20">
+                <div className="text-center  md:mt-20">
                     <h2 className="font-serif text-[16vw] leading-none tracking-wide text-transparent bg-clip-text bg-linear-to-b from-neutral-700 via-neutral-300 to-neutral-100">
                         ESSENTIAL
                     </h2>
