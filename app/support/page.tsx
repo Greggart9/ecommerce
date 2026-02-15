@@ -123,7 +123,7 @@ const SupportPage = () => {
       </section>
 
       {/* FAQS */}
-      <section className="mt-25 md:mt-35">
+      <section className="mt-15 md:mt-35">
         <FAQs />
       </section>
 

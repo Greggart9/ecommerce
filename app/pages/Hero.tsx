@@ -153,7 +153,7 @@ const Hero = () => {
                     <div className=" flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 items-start md:items-end h-26 text-black">
                         <h2 className="font-serif text-[26px] sm:text-4xl/12 xl:text-5xl/14 font-medium text-black">
                             Explore Beauty Reads Tailored to
-                            <br />
+                            <br className='hidden sm:block' />
                             <span className="text-gray-600">Your Lifestyle</span>
                         </h2>
                         <Button onClick={() => (window.location.href = '/blog')} variant="secondary">

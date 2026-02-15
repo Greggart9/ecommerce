@@ -8,7 +8,7 @@ const StorePage = () => {
       <section className="w-full mt-15 md:mt-20">
         <div className="h-40 mb-20 xl:mb-0">
           <div className="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center  text-black">
-            <h2 className="font-serif text-5xl/14 xl:text-5xl/16 font-medium text-black">
+            <h2 className="font-serif text-4xl/14 xl:text-5xl/16 font-medium text-black">
               Browse Our
               <br />
               <span className="text-gray-600">Product Line Up</span>
