@@ -89,7 +89,7 @@ const Hero = () => {
                         Store
                     </Button>
 
-                    <span className="mt-6">
+                    <span className="mt-10 sm:mt-6">
                         <motion.img
                             ref={imgRef}
                             src="/assets/asset4.png"
