@@ -45,7 +45,7 @@ const FAQs = () => {
             FAQs
           </button>
 
-          <h1 className="mt-4 md:mt-6 text-5xl/16 font-serif font-normal text-black text-center">
+          <h1 className="mt-4 md:mt-6 text-4xl/12 sm:text-5xl/16 font-serif font-normal text-black text-center">
             Your Questions <br className="block sm:hidden" /> <span className="text-gray-600">Answered</span>
           </h1>
 

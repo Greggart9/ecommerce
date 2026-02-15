@@ -115,7 +115,7 @@ const Hero = () => {
                 <div className="flex flex-col gap-12 xl:flex-row justify-between w-full items-start text-black">
                     <button className="px-4 py-2 bg-gray-200 rounded-full">About us</button>
 
-                    <p className="font-serif text-xl sm:text-2xl/9 md:text-3xl/10 font-medium max-w-200">
+                    <p className="font-serif text-xl sm:text-2xl/9 md:text-3xl/10 max-w-200">
                         "At our store, we believe that good design should be both beautiful and
                         practical. That’s why we curate a collection of carefully crafted
                         essentials—each chosen for its purpose, quality, and timeless appeal."
@@ -125,13 +125,13 @@ const Hero = () => {
 
             {/* STORE */}
             <section className="mt-15 xl:mt-30 mb-10">
-                <div className="h-65 sm:h-70 xl:h-57.5">
+                <div className="h-70 xl:h-57.5">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-9">Store</button>
                     <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end h-26 text-black">
-                        <h2 className="font-serif text-3xl/9 sm:text-4xl/10 mb-5 lg-mb-0  lg:text-5xl/14 font-medium text-black">
+                        <h2 className="font-serif text-[26px] sm:text-4xl/10 mb-5 lg-mb-0  lg:text-5xl/14 font-medium text-black">
                             Find Products That Perfectly Match
                             <br className='hidden sm:block' />
-                            <span className="text-gray-600">Your Lifestyle</span>
+                            <span className="text-gray-600"> Your Lifestyle</span>
                         </h2>
                         <Button onClick={() => (window.location.href = '/store')} variant="secondary">
                             View All
@@ -147,11 +147,11 @@ const Hero = () => {
             </section>
 
             {/* BLOG */}
-            <section className="w-full mb-30">
+            <section className="w-full mb-15 sm:mb-30">
                 <div className="h-57.5 mb-10 md:mb-0">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-9">Blog</button>
                     <div className=" flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 items-start md:items-end h-26 text-black">
-                        <h2 className="font-serif text-3xl/12 sm:text-4xl/12 xl:text-5xl/14 font-medium text-black">
+                        <h2 className="font-serif text-[26px] sm:text-4xl/12 xl:text-5xl/14 font-medium text-black">
                             Explore Beauty Reads Tailored to
                             <br />
                             <span className="text-gray-600">Your Lifestyle</span>

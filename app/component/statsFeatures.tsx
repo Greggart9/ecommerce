@@ -14,7 +14,7 @@ const StatsFeatures = () => {
                         Features
                     </button>
 
-                    <h1 className="mt-6 text-[40px] md:text-5xl/16 font-serif font-normal text-black text-center">
+                    <h1 className="mt-6 text-[40px] leading-11 md:text-5xl/16 font-serif font-normal text-black text-center">
                         Where Timeless Values Meet
                         <br className='hidden md:block' />
                         <span className="text-gray-600"> Modern Vision</span>
