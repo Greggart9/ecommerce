@@ -22,7 +22,7 @@ const Hero = () => {
     return (
         <div className="flex flex-col items-center justify-center w-full h-fit">
             {/* EMPTY DIV */}
-            <div className="h-49" />
+            <div className="h-35 md:h-49" />
 
             {/* LANDING */}
             <motion.div
@@ -67,7 +67,7 @@ const Hero = () => {
 
                 {/* MAIN TEXT ON THE HERO */}
                 <motion.section>
-                    <h1 className="mt-6 text-6xl/16 font-serif font-normal text-black text-center">
+                    <h1 className="mt-6 text-4xl/12 sm:text-5xl/14 md:text-6xl/16 font-serif font-normal text-black text-center">
                         Built To Buy,
                         <br />
                         <span className="text-gray-600">Designed To Delight</span>
@@ -111,11 +111,11 @@ const Hero = () => {
             </motion.div>
 
             {/* ABOUT US */}
-            <section className="w-full -mt-80 pt-50 pb-25 flex justify-center items-center">
-                <div className="flex justify-between w-full items-start text-black">
+            <section className="w-full -mt-80 pt-50 :pb-25 flex justify-center items-center">
+                <div className="flex flex-col gap-12 xl:flex-row justify-between w-full items-start text-black">
                     <button className="px-4 py-2 bg-gray-200 rounded-full">About us</button>
 
-                    <p className="font-serif text-3xl/10 font-medium max-w-200">
+                    <p className="font-serif text-xl sm:text-2xl/9 md:text-3xl/10 font-medium max-w-200">
                         "At our store, we believe that good design should be both beautiful and
                         practical. That’s why we curate a collection of carefully crafted
                         essentials—each chosen for its purpose, quality, and timeless appeal."
@@ -124,13 +124,13 @@ const Hero = () => {
             </section>
 
             {/* STORE */}
-            <section className="mt-30 mb-10">
-                <div className="h-57.5">
+            <section className="mt-15 xl:mt-30 mb-10">
+                <div className="h-65 sm:h-70 xl:h-57.5">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-9">Store</button>
-                    <div className="flex justify-between items-end h-26 text-black">
-                        <h2 className="font-serif text-5xl/14 font-medium text-black">
+                    <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end h-26 text-black">
+                        <h2 className="font-serif text-3xl/9 sm:text-4xl/10 mb-5 lg-mb-0  lg:text-5xl/14 font-medium text-black">
                             Find Products That Perfectly Match
-                            <br />
+                            <br className='hidden sm:block' />
                             <span className="text-gray-600">Your Lifestyle</span>
                         </h2>
                         <Button onClick={() => (window.location.href = '/store')} variant="secondary">
@@ -142,16 +142,16 @@ const Hero = () => {
             </section>
 
             {/* STATS AND FEATURES */}
-            <section className="mt-50 mb-30">
+            <section className="mt-50 md:mb-20 xl:mb-30">
                 <StatsFeatures />
             </section>
 
             {/* BLOG */}
-            <section className="w-full mt-10 mb-30">
-                <div className="h-57.5">
+            <section className="w-full mb-30">
+                <div className="h-57.5 mb-10 md:mb-0">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-9">Blog</button>
-                    <div className="flex justify-between items-end h-26 text-black">
-                        <h2 className="font-serif text-5xl/14 font-medium text-black">
+                    <div className=" flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 items-start md:items-end h-26 text-black">
+                        <h2 className="font-serif text-3xl/12 sm:text-4xl/12 xl:text-5xl/14 font-medium text-black">
                             Explore Beauty Reads Tailored to
                             <br />
                             <span className="text-gray-600">Your Lifestyle</span>

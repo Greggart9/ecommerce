@@ -4,8 +4,8 @@ import Button from './button1'
 
 const StatsFeatures = () => {
     return (
-        <div className="mx-auto max-w-360 px-10">
-            <ScrollCircleGallery />
+        <div className=" ">
+            {/* <ScrollCircleGallery /> */}
 
             {/* FEATURES */}
             <section>
@@ -14,13 +14,13 @@ const StatsFeatures = () => {
                         Features
                     </button>
 
-                    <h1 className="mt-6 text-5xl/16 font-serif font-normal text-black text-center">
+                    <h1 className="mt-6 text-[40px] md:text-5xl/16 font-serif font-normal text-black text-center">
                         Where Timeless Values Meet
-                        <br />
-                        <span className="text-gray-600">Modern Vision</span>
+                        <br className='hidden md:block' />
+                        <span className="text-gray-600"> Modern Vision</span>
                     </h1>
 
-                    <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center max-w-xs">
+                    <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center sm:max-w-xs">
                         Behind every pixel, product, and project lies a story of dedication.
                     </p>
 
@@ -34,9 +34,9 @@ const StatsFeatures = () => {
 
                 {/* MATERIALS */}
                 <div className="mx-auto py-14">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-12 ">
                         {/* LEFT CONTENT */}
-                        <div className="space-y-6 lg:sticky lg:top-30 self-start h-fit">
+                        <div className="space-y-6 xl:sticky xl:top-30 self-start h-fit ">
                             <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
                                 Materials
                             </button>
@@ -52,9 +52,9 @@ const StatsFeatures = () => {
                         </div>
 
                         {/* RIGHT CARDS */}
-                        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 w-fit ml-auto">
+                        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 w-full xl:w-fit xl:ml-auto">
                             {/* Card 1 */}
-                            <div className="rounded-xl border bg-white p-6 w-97">
+                            <div className="rounded-xl border bg-white p-6 xl:w-90">
                                 <h3 className="text-center text-base font-medium mb-6">Plant based</h3>
 
                                 <div className="overflow-hidden rounded-xl">
@@ -67,7 +67,7 @@ const StatsFeatures = () => {
                             </div>
 
                             {/* Card 2 */}
-                            <div className="rounded-xl border bg-white p-6 w-97">
+                            <div className="rounded-xl border bg-white p-6 xl:w-90">
                                 <h3 className="text-center text-base font-medium mb-6">Organic</h3>
 
                                 <div className="overflow-hidden rounded-xl">
@@ -84,9 +84,9 @@ const StatsFeatures = () => {
 
                 {/* SOURCES */}
                 <div className="mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-12">
                         {/* LEFT CONTENT */}
-                        <div className="space-y-6 lg:sticky lg:top-30 self-start h-fit">
+                        <div className="space-y-6 xl:sticky xl:top-30 self-start h-fit">
                             <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
                                 Sources
                             </button>
@@ -100,9 +100,9 @@ const StatsFeatures = () => {
                         </div>
 
                         {/* RIGHT CARDS */}
-                        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 w-fit ml-auto">
+                        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 w-full xl:w-fit xl:ml-auto">
                             {/* Card 1 */}
-                            <div className="rounded-xl border bg-white p-6 w-97">
+                            <div className="rounded-xl border bg-white p-6 xl:w-90">
                                 <h3 className="text-center text-base font-medium mb-6">All natural</h3>
 
                                 <div className="overflow-hidden rounded-xl">
@@ -115,7 +115,7 @@ const StatsFeatures = () => {
                             </div>
 
                             {/* Card 2 */}
-                            <div className="rounded-xl border bg-white p-6 w-97">
+                            <div className="rounded-xl border bg-white p-6 xl:w-90">
                                 <h3 className="text-center text-base font-medium mb-6">
                                     Chemicals free
                                 </h3>
@@ -134,9 +134,9 @@ const StatsFeatures = () => {
 
                 {/* DESIGN */}
                 <div className="mx-auto py-14">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-12">
                         {/* LEFT CONTENT */}
-                        <div className="space-y-6 lg:sticky lg:top-30 self-start h-fit">
+                        <div className="space-y-6 xl:sticky xl:top-30 self-start h-fit">
                             <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
                                 Design
                             </button>
@@ -151,9 +151,9 @@ const StatsFeatures = () => {
                         </div>
 
                         {/* RIGHT CARDS */}
-                        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 w-fit ml-auto">
+                        <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 w-full xl:w-fit xl:ml-auto">
                             {/* Card 1 */}
-                            <div className="rounded-xl border bg-white p-6 w-97">
+                            <div className="rounded-xl border bg-white p-6 xl:w-90">
                                 <h3 className="text-center text-base font-medium mb-6">
                                     Handled with care
                                 </h3>
@@ -168,7 +168,7 @@ const StatsFeatures = () => {
                             </div>
 
                             {/* Card 2 */}
-                            <div className="rounded-xl border bg-white p-6 w-97">
+                            <div className="rounded-xl border bg-white p-6 xl:w-90">
                                 <h3 className="text-center text-base font-medium mb-6">
                                     Expert design
                                 </h3>
