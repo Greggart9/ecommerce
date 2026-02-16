@@ -6,7 +6,6 @@ import Footer from '../component/footer'
 const Blogpage = () => {
   return (
     <div className='flex flex-col items-center justify-center px-5 md:px-10 w-full pt-25'>
-
                 <section className='w-full mt-15 md:mt-20'>
                      <div className='h-40 mb-15 xl:mb-0'>
                         <div className='flex flex-col xl:flex-row xl:justify-between items-start xl:items-center '>

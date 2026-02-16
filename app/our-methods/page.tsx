@@ -5,17 +5,17 @@ import Footer from '../component/footer'
 
 const OurMethodsPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center px-10 w-full pt-25">
+    <div className="flex flex-col items-center justify-center px-5 md:px-10 w-full pt-25">
       {/* HERO SECTION */}
-      <section className="w-full mt-20">
-        <div className="h-40">
-          <div className="flex justify-between items-center h-26 text-black">
-            <h2 className="font-serif text-5xl/18 font-medium text-black">
+      <section className="w-full mt-15 md:mt-20">
+        <div className="h-40 mb-15 xl:mb-0">
+          <div className="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center">
+            <h2 className="font-serif text-4xl/12 xl:text-5xl/16 font-medium text-black">
               As Natural As You.
               <br />
               <span className="text-gray-600">Perfectly Refined</span>
             </h2>
-            <p className="text-right text-lg">
+            <p className="xl:text-right text-left text-lg pt-5 xl:pt-0">
               Explore our approach for in-depth
               <br />
               insights and intentional choices.
@@ -33,26 +33,26 @@ const OurMethodsPage = () => {
       </section>
 
       {/* OUR METHODS SECTION */}
-      <section className="mt-40">
+      <section className="mt-20 xl:mt-40">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
             Our methods
           </button>
 
-          <h1 className="mt-6 text-5xl/16 font-serif font-normal text-black text-center">
+          <h1 className="mt-6 text-[40px] leading-11 md:text-5xl/16 font-serif font-normal text-black text-center">
             Rooted In Purpose, Backed
-            <br />
+            <br className='hidden md:block'  />
             <span className="text-gray-600">By Care</span>
           </h1>
 
-          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center max-w-sm">
+          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center sm:max-w-xs">
             We blend high-performing formulas with naturally derived ingredients.
           </p>
         </div>
 
         {/* Methods Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-10 sm:mt-20">
           {/* LEFT SIDE */}
           <div className="space-y-6">
             {/* Eco-Friendly Packaging Card */}
@@ -158,20 +158,20 @@ const OurMethodsPage = () => {
       </section>
        
       {/* TEAM SECTION */}
-      <section className="mt-40 w-full">
+      <section className="mt-20 md:mt-40 w-full">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
             Experts
           </button>
 
-          <h1 className="mt-6 text-5xl/16 font-serif font-normal text-black text-center">
+          <h1 className="mt-6 text-[40px] leading-11 md:text-5xl/16 font-serif font-normal text-black text-center">
             Meet The People Who
-            <br />
+            <br className='hidden md:block' />
             Make <span className="text-gray-600">Everything Possible</span>
           </h1>
 
-          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center max-w-sm">
+          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center sm:max-w-xs">
             At Essential, we believe beauty should feel effortless and empowering.
           </p>
         </div>
@@ -241,20 +241,20 @@ const OurMethodsPage = () => {
       </section>
 
       {/* TESTIMONIALS SECTION */}
-      <section className="mt-40 w-full">
+      <section className="mt-20 md:mt-40 w-full">
         {/* Section Header */}
         <div className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
             Testimonials
           </button>
 
-          <h1 className="mt-6 text-5xl/16 font-serif font-normal text-black text-center">
+          <h1 className="mt-6 text-[40px] leading-11 md:text-5xl/16 font-serif font-normal text-black text-center">
             Hear What Our Customers
-            <br />
+            <br className='hidden md:block'  />
             <span className="text-gray-600">Are Saying</span>
           </h1>
 
-          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center max-w-xs">
+          <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center sm:max-w-xs">
             Our testimonials reflect genuine experiences from customers.
           </p>
         </div>
@@ -429,7 +429,7 @@ const OurMethodsPage = () => {
       </section>
 
       {/* FOOTER */}
-      <div className="py-20 mb-5">
+      <div className="py-10 md:py-20 mb-5">
         <hr />
       </div>
       <Footer />
