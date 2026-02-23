@@ -29,7 +29,7 @@ export default async function ManagePosts() {
         </a>
       </div>
 
-      <div className='w-full max-w-none px-5 md:px-10 mt-30 md:mt-40 lg:mt-50'>
+      <div className='w-full max-w-none px-5 md:px-10 mt-20 md:mt-30 lg:mt-50'>
         <Footer />
       </div>
     </div>

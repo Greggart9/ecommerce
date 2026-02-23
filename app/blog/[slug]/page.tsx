@@ -105,7 +105,7 @@ const BlogArticlePage = async ({ params }: BlogArticlePageProps) => {
         <div className='mt-16 pt-10 border-t px-5 md:px-10'>
           <div className='flex items-center justify-between mb-6'>
             <p className='text-xs uppercase tracking-widest text-gray-400'>Next posts</p>
-            <Link href='/blog' className='bg-black text-white border-black hover:bg-transparent hover:text-black'>
+            <Link href='/blog' className='text-gray-400 hover:text-black transition text-sm uppercase tracking-widest'>
               View All →
             </Link>
           </div>
