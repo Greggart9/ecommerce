@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Navbar from "./component/Navbar";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 
 
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Navbar />
         {children }
         </div>
+        <SpeedInsights />
       </body>
     </html>
   );
