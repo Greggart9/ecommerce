@@ -133,7 +133,7 @@ const Footer = () => {
                             <h3 className="text-base font-semibold text-neutral-900">Other Pages</h3>
                             <ul className="space-y-6 text-neutral-600">
                                 <li>
-                                    <a href="/product">Product</a>
+                                    <a href="/product">Products</a>
                                 </li>
                                 <li>
                                     <a href="ecommerce9.vercel.app/admin">Admin</a>
