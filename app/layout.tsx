@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "./component/Navbar";
 import "./globals.css";
 
@@ -46,6 +47,7 @@ export default function RootLayout({
         <Navbar />
         {children }
         </div>
+        <Analytics />
       </body>
     </html>
   );
