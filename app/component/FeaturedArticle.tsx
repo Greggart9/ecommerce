@@ -4,10 +4,29 @@ import { motion, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Eye } from 'lucide-react'
+import { useState } from 'react'
 
-export default function FeaturedArticle() {
+type Post = {
+  id: number
+  tag: string
+  title: string
+  minutes_read: number
+  slug: string
+  cover_image_url: string
+  author_name: string
+  author_role: string
+  author_image_url: string
+  body: string
+}
+
+type Props = {
+  posts: Post[]
+}
+
+export default function FeaturedArticle({ posts }: Props) {
   const eyeX = useSpring(useMotionValue(0), { stiffness: 200, damping: 20 })
   const eyeY = useSpring(useMotionValue(0), { stiffness: 200, damping: 20 })
+  const [visibleCount, setVisibleCount] = useState(6)
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     const rect = event.currentTarget.getBoundingClientRect()
@@ -20,10 +39,17 @@ export default function FeaturedArticle() {
     eyeY.set(0)
   }
 
+  const featured = posts[0]
+  const rest = posts.slice(1)
+  const visiblePosts = rest.slice(0, visibleCount)
+  const hasMore = rest.length > visibleCount
+
+  if (!featured) return <p className="text-gray-500">No posts yet.</p>
+
   return (
     <div>
       <section>
-        <Link href="/blog/skincare-routines">
+        <Link href={`/blog/${featured.slug}`}>
           <motion.article
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -33,21 +59,18 @@ export default function FeaturedArticle() {
             className="group cursor-pointer rounded-xl border bg-white shadow-sm hover:shadow-lg transition"
           >
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-10">
-              {/* IMAGE */}
               <div
                 className="relative overflow-hidden rounded-xl"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
                 <motion.img
-                  src="/assets/asset28.jpeg"
-                  alt="Skincare article"
+                  src={featured.cover_image_url}
+                  alt={featured.title}
                   className="w-full xl:w-174 h-90 md:h-124 xl:h-143 object-cover rounded-xl"
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                 />
-
-                {/* Hover overlay + floating eye */}
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
                   <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
                   <motion.div
@@ -59,45 +82,37 @@ export default function FeaturedArticle() {
                 </div>
               </div>
 
-              {/* CONTENT */}
               <div className="flex flex-col justify-between p-6">
                 <div className="space-y-6">
-                  {/* Category pill */}
                   <span className="inline-flex w-fit rounded-full border px-4 py-1 text-base">
-                    Skincare tips
+                    {featured.tag}
                   </span>
-
-                  {/* Heading */}
                   <h2 className="text-xl sm:text-3xl md:text-3xl max-w-lg font-serif leading-tight text-neutral-900">
-                    Expert advice and simple routines to keep your skin healthy and
-                    glowing every day
+                    {featured.title}
                   </h2>
-
-                  {/* Description */}
-                  <p className="text-neutral-600 pr-6 xl:max-w-xl">
-                    Dive into the world of clean, sustainable beauty, where every
-                    product is chosen for safety, ethics, and results, helping you
-                    feel confident in what you put on your skin.
+                  <p style={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden'
+                  }} className="text-neutral-600 pr-6 xl:max-w-xl">
+                    {featured.body}
                   </p>
                 </div>
 
-                {/* FOOTER */}
                 <div className="mt-10 flex items-center justify-between">
-                  {/* Author */}
                   <div className="flex items-center gap-3">
                     <img
-                      src="/assets/asset29.png"
-                      alt="Author"
+                      src={featured.author_image_url}
+                      alt={featured.author_name}
                       className="h-12 w-12 rounded-full object-cover"
                     />
                     <div className="text-sm">
-                      <p className="font-medium text-neutral-900">Lucas Grant</p>
-                      <p className="text-neutral-500">Visual designer</p>
+                      <p className="font-medium text-neutral-900">{featured.author_name}</p>
+                      <p className="text-neutral-500">{featured.author_role}</p>
                     </div>
                   </div>
-
-                  {/* Read time */}
-                  <span className="text-sm text-black">• 5 min read</span>
+                  <span className="text-sm text-black">• {featured.minutes_read} min read</span>
                 </div>
               </div>
             </div>
@@ -107,129 +122,57 @@ export default function FeaturedArticle() {
 
       <section className="py-8">
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {/* Item 1 */}
-          <Link href="/blog/glow-guide" className="group">
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ type: 'spring', stiffness: 200 }}
-              className="overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-lg"
-            >
-              <div
-                className="relative h-90 overflow-hidden"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
+          {visiblePosts.map((post) => (
+            <Link href={`/blog/${post.slug}`} className="group" key={post.id}>
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 200 }}
+                className="overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-lg"
               >
-                <Image
-                  src="/assets/asset30.jpeg"
-                  alt="Glow guide"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Hover overlay + floating eye */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
-                  <motion.div
-                    className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur p-2 shadow-sm"
-                    style={{ left: eyeX, top: eyeY }}
-                  >
-                    <Eye className="h-5 w-5 text-gray-800" />
-                  </motion.div>
+                <div
+                  className="relative h-90 overflow-hidden"
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Image
+                    src={post.cover_image_url}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
+                    <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
+                    <motion.div
+                      className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur p-2 shadow-sm"
+                      style={{ left: eyeX, top: eyeY }}
+                    >
+                      <Eye className="h-5 w-5 text-gray-800" />
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-5">
-                <span className="inline-block rounded-full border px-3 py-1 text-sm text-black">
-                  7 min read
-                </span>
-
-                <h3 className="mt-4 text-xl font-serif text-gray-900">Glow guide</h3>
-              </div>
-            </motion.div>
-          </Link>
-
-          {/* Item 2 */}
-          <Link href="/blog/clean-beauty" className="group">
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ type: 'spring', stiffness: 200 }}
-              className="overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-lg"
-            >
-              <div
-                className="relative h-90 overflow-hidden"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Image
-                  src="/assets/asset31.png"
-                  alt="Clean beauty"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Hover overlay + floating eye */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
-                  <motion.div
-                    className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur p-2 shadow-sm"
-                    style={{ left: eyeX, top: eyeY }}
-                  >
-                    <Eye className="h-5 w-5 text-gray-800" />
-                  </motion.div>
+                <div className="p-5">
+                  <span className="inline-block rounded-full border px-3 py-1 text-sm text-black">
+                    {post.minutes_read} min read
+                  </span>
+                  <h3 className="mt-4 text-xl font-serif text-gray-900">{post.title}</h3>
                 </div>
-              </div>
-
-              <div className="p-5">
-                <span className="inline-block rounded-full border px-3 py-1 text-sm text-black">
-                  6 min read
-                </span>
-
-                <h3 className="mt-4 text-xl font-serif text-gray-900">Clean beauty</h3>
-              </div>
-            </motion.div>
-          </Link>
-
-          {/* Item 3 */}
-          <Link href="/blog/diy-care" className="group">
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ type: 'spring', stiffness: 200 }}
-              className="overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-lg"
-            >
-              <div
-                className="relative h-90 overflow-hidden"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-                <Image
-                  src="/assets/asset32.png"
-                  alt="DIY care"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-
-                {/* Hover overlay + floating eye */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
-                  <motion.div
-                    className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur p-2 shadow-sm"
-                    style={{ left: eyeX, top: eyeY }}
-                  >
-                    <Eye className="h-5 w-5 text-gray-800" />
-                  </motion.div>
-                </div>
-              </div>
-
-              <div className="p-5">
-                <span className="inline-block rounded-full border px-3 py-1 text-sm text-black">
-                  8 min read
-                </span>
-
-                <h3 className="mt-4 text-xl font-serif text-gray-900">DIY care</h3>
-              </div>
-            </motion.div>
-          </Link>
+              </motion.div>
+            </Link>
+          ))}
         </div>
+
+        {/* Load more button */}
+        {hasMore && (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              className="rounded-full border px-8 py-3 text-sm font-medium text-black hover:bg-black hover:text-white transition"
+            >
+              Load More
+            </button>
+          </div>
+        )}
       </section>
     </div>
   )

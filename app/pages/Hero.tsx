@@ -6,16 +6,23 @@ import Image from 'next/image'
 import Button from '../component/button1'
 import Store from '../component/store'
 import StatsFeatures from '../component/statsFeatures'
-import Blog from '../component/FeaturedArticle'
 import FAQs from '../component/faqs'
 import Footer from '../component/footer'
+import Link from 'next/link'
+import HomeBlog from '../component/HomeBlog'
 
-const Hero = () => {
-    const imgRef = useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: imgRef,
-        offset: ['start end', 'end start'],
-    })
+type HeroProps = {
+  posts: any[]
+}
+
+const Hero = ({ posts }: HeroProps) => {
+  const imgRef = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: imgRef,
+    offset: ["start end", "end start"],
+  })
+
 
     const yImg = useTransform(scrollYProgress, [0, 1], [0, -400])
 
@@ -111,7 +118,7 @@ const Hero = () => {
             </motion.div>
 
             {/* ABOUT US */}
-            <section className="w-full -mt-80 pt-50 :pb-25 flex justify-center items-center">
+            <section className="w-full -mt-80 pt-50 pb-10 md:pb-25 flex justify-center items-center">
                 <div className="flex flex-col gap-12 xl:flex-row justify-between w-full items-start text-black">
                     <button className="px-4 py-2 bg-gray-200 rounded-full">About us</button>
 
@@ -128,14 +135,16 @@ const Hero = () => {
                 <div className="h-70 xl:h-57.5">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-9">Store</button>
                     <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end h-26 text-black">
-                        <h2 className="font-serif text-[26px] sm:text-4xl/10 mb-5 lg-mb-0  lg:text-5xl/14 font-medium text-black">
+                        <h2 className="font-serif text-[26px] sm:text-4xl/10 mb-5 lg-mb-0  lg:text-[45px] lg:leading-14 font-medium text-black">
                             Find Products That Perfectly Match
                             <br className='hidden sm:block' />
                             <span className="text-gray-600"> Your Lifestyle</span>
                         </h2>
-                        <Button onClick={() => (window.location.href = '/store')} variant="secondary">
+                        <Link href='/store'>
+                        <Button variant="secondary">
                             View All
                         </Button>
+                        </Link>
                     </div>
                 </div>
                 <Store />
@@ -156,12 +165,16 @@ const Hero = () => {
                             <br className='hidden sm:block' />
                             <span className="text-gray-600">Your Lifestyle</span>
                         </h2>
-                        <Button onClick={() => (window.location.href = '/blog')} variant="secondary">
+                        
+                        <Link href='/blog'>
+                        <Button variant="secondary">
                             View All
                         </Button>
+                        </Link>
                     </div>
                 </div>
-                <Blog />
+                <HomeBlog posts={posts} />
+
             </section>
 
             {/* FAQS */}

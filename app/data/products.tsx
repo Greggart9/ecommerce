@@ -5,6 +5,7 @@ export type Product = {
   price: number
   currency: string
   image: string
+  href: string
 }
 
 export const products: Product[] = [
@@ -15,6 +16,7 @@ export const products: Product[] = [
     price: 109,
     currency: 'USD',
     image: '/assets/asset5.jpeg',
+    href: '/store/lustre-dew-elixir',
   },
   {
     id: 2,
@@ -23,6 +25,7 @@ export const products: Product[] = [
     price: 52,
     currency: 'USD',
     image: '/assets/asset6.png',
+    href: '/store/hydrating-day-cream',
   },
   {
     id: 3,
@@ -31,6 +34,7 @@ export const products: Product[] = [
     price: 159,
     currency: 'USD',
     image: '/assets/asset7.png',
+    href: '/store/gentle-foaming-cleanser',
   },
   
   {
@@ -40,6 +44,7 @@ export const products: Product[] = [
     price: 112,
     currency: 'USD',
     image: '/assets/asset8.png',
+    href: '/store/replenishing-night-balm',
   },
   {
     id: 5,
@@ -48,6 +53,7 @@ export const products: Product[] = [
     price: 210,
     currency: 'USD',
     image: '/assets/asset9.png',
+    href: '/store/brightening-toner',
   },
     {
     id: 6,
@@ -56,5 +62,6 @@ export const products: Product[] = [
     price: 100,
     currency: 'USD',
     image: '/assets/asset11.png',
+    href: '/store/soothing-eye-cream',
   },
 ]
