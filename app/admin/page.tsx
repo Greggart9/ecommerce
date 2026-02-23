@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Footer from '../component/footer'
 
 export default function AdminPage() {
   const router = useRouter()
@@ -109,11 +110,12 @@ export default function AdminPage() {
   ]
 
   return (
-    <div className='max-w-2xl mx-auto px-5 mt-20 py-10'>
-      <h1 className='font-serif text-4xl text-black mb-2'>Create New Post</h1>
-      <p className='text-gray-500 mb-8'>Fill in the details below to publish a new blog post.</p>
+    <div className='w-full'>
+      <div className='max-w-2xl mx-auto px-5 mt-20 py-10'>
+        <h1 className='font-serif text-4xl text-black mb-2'>Create New Post</h1>
+        <p className='text-gray-500 mb-8'>Fill in the details below to publish a new blog post.</p>
 
-      <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-8'>
         {fields.map((field) => (
           <div key={field.name} className='flex flex-col gap-1'>
             <label className='text-sm font-medium text-gray-700'>{field.label}</label>
@@ -275,5 +277,10 @@ export default function AdminPage() {
         )}
       </div>
     </div>
+
+    <div className='w-full max-w-none px-5 md:px-10 mt-30 md:mt-40 lg:mt-50'>
+      <Footer />
+    </div>
+  </div>
   )
 }

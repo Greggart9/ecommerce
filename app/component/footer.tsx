@@ -136,10 +136,10 @@ const Footer = () => {
                                     <a href="/product">Products</a>
                                 </li>
                                 <li>
-                                    <a href="ecommerce9.vercel.app/admin">Admin</a>
+                                    <a href="/admin">Admin</a>
                                 </li>
                                 <li>
-                                    <a href="ecommerce9.vercel.app/admin/posts">Manage blog</a>
+                                    <a href="/admin/posts">Manage blog</a>
                                 </li>
                                 <li>
                                     <a href="/404">404</a>
