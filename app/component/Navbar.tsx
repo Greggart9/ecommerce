@@ -56,7 +56,7 @@ const Navbar = () => {
 
           {/* USER ACTION - DESKTOP */}
           <span className="hidden md:block">
-            <Button onClick={() => (window.location.href = '/support')} variant="secondary">
+            <Button onClick={() => (window.location.href = '/store')} variant="secondary">
               Shop
             </Button>
           </span>
