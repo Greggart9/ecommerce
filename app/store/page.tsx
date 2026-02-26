@@ -1,8 +1,18 @@
 import React from 'react'
 import Footer from '../component/footer'
 import Store from '../component/store'
+import sql from '../db'
+
+
+  const products = await sql`
+    SELECT * FROM products
+    ORDER BY created_at DESC 
+  ` as any[]
 
 const StorePage = () => {
+  
+
+
   return (
     <div className="flex flex-col items-center justify-center px-5 md:px-10 w-full pt-25">
       <section className="w-full mt-15 md:mt-20">
@@ -21,7 +31,7 @@ const StorePage = () => {
           </div>
         </div>
 
-        <Store />
+        <Store products={products} />
 
         <div className="py-15 md:py-20 mb-5">
           <hr />

@@ -11,11 +11,13 @@ import Footer from '../component/footer'
 import Link from 'next/link'
 import HomeBlog from '../component/HomeBlog'
 
-type HeroProps = {
+ type HeroProps = {
   posts: any[]
+  products: any[]
 }
 
-const Hero = ({ posts }: HeroProps) => {
+
+const Hero = ({ posts, products }: HeroProps) => {
   const imgRef = useRef(null)
 
   const { scrollYProgress } = useScroll({
@@ -147,7 +149,7 @@ const Hero = ({ posts }: HeroProps) => {
                         </Link>
                     </div>
                 </div>
-                <Store />
+                <Store products={products} />
             </section>
 
             {/* STATS AND FEATURES */}

@@ -9,9 +9,16 @@ export default async function Page() {
     LIMIT 4
   ` as any[]
 
+    // Fetch products
+  const products = await sql`
+    SELECT * FROM products
+    ORDER BY created_at DESC
+    LIMIT 6
+  ` as any[]
+
   return (
     <div className="h-fit flex flex-col items-center mx-5 md:mx-10 justify-center">
-      <Hero posts={posts} />
+      <Hero posts={posts} products={products} />
     </div>
   )
 }

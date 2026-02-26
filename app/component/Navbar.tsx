@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import Button from './button1'
 import Button2 from './button2'
+import Link from 'next/link'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -24,6 +25,7 @@ const Navbar = () => {
         <nav className="flex w-full h-21.5 items-center justify-between">
           {/* LOGO */}
           <span>
+            <Link href="/">
             <img
               src="/assets/asset0.png"
               alt="Essential Logo"
@@ -31,6 +33,7 @@ const Navbar = () => {
               height={46}
               className="rounded-xl cursor-pointer"
             />
+            </Link>
           </span>
 
           {/* NAVIGATION LINKS - DESKTOP */}

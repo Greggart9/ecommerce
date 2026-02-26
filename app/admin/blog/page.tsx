@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Footer from '../component/footer'
+import Footer from '../../component/footer'
 
 export default function AdminPage() {
   const router = useRouter()
