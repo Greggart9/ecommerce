@@ -206,7 +206,7 @@ const OurMethodsPage = () => {
         <motion.div
                   initial={{ y: 30, filter: 'blur(10px)', opacity: 0 }}
                  whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
-                 viewport={{ once: false, amount: 0.3 }}
+                 viewport={{ once: false, amount: 0.2 }}
                  transition={{ duration: 0.8, ease: 'easeIn' }}
          className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
@@ -226,9 +226,9 @@ const OurMethodsPage = () => {
 
         {/* Team Members Grid */}
         <motion.div
-                  initial={{ x: 160, filter: 'blur(10px)', opacity: 0 }}
-                 whileInView={{ x: 0, filter: 'blur(0px)', opacity: 1 }}
-                 viewport={{ once: false, amount: 0.3 }}
+                  initial={{ y: 40, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.1 }}
                  transition={{ delay: 0.2, duration: 0.8, ease: 'easeIn' }}
         
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
@@ -300,7 +300,7 @@ const OurMethodsPage = () => {
         <motion.div
                   initial={{ y: 30, filter: 'blur(10px)', opacity: 0 }}
                  whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
-                 viewport={{ once: false, amount: 0.3 }}
+                 viewport={{ once: false, amount: 0.2 }}
                  transition={{ duration: 0.8, ease: 'easeIn' }}
         
         className="flex flex-col items-center justify-center">
@@ -321,9 +321,9 @@ const OurMethodsPage = () => {
 
         {/* Testimonials Grid */}
         <motion.div
-            initial={{ x: -160, filter: 'blur(10px)', opacity: 0 }}
-                 whileInView={{ x: 0, filter: 'blur(0px)', opacity: 1 }}
-                 viewport={{ once: false, amount: 0.3 }}
+            initial={{ y: 40, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.1 }}
                  transition={{ duration: 0.8, ease: 'easeIn' }}
         
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 overflow-hidden">

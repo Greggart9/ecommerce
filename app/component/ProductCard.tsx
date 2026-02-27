@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { motion, useMotionValue, useSpring, easeIn } from 'framer-motion'
 import { Eye } from 'lucide-react'
 
 type ProductCardProps = {
@@ -38,6 +38,7 @@ export default function ProductCard({
   return (
     <Link href={href} className="block">
       <motion.div
+
         whileHover={{ y: -6 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
         className="group rounded-2xl bg-white shadow-sm hover:shadow-lg transition overflow-hidden"
@@ -51,8 +52,8 @@ export default function ProductCard({
           <motion.img
             src={image}
             alt={title}
-            initial={{scale: 1.2, opacity: 0.8, y: 30 }}
-            whileInView={{scale: 1, opacity: 1, y: 0 }}
+            initial={{scale: 1.2 }}
+            whileInView={{scale: 1 }}
             whileHover={{ scale: 1.08 }}
             viewport={{ once: false, amount: 0.3  }}
             transition={{ duration: 0.6, ease: 'easeOut',  delay: 0.5  }}

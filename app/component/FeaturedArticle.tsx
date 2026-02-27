@@ -48,10 +48,10 @@ export default function FeaturedArticle({ posts }: Props) {
 
   return (
     <motion.div
-            initial={{ opacity: 0, x: -160 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.8, ease: easeInOut }}
             whileHover={{ y: -6 }}
             className="overflow-hidden">
             
@@ -73,7 +73,7 @@ export default function FeaturedArticle({ posts }: Props) {
                   className="w-full xl:w-174 h-90 md:h-124 xl:h-143 object-cover rounded-xl"
                   initial={{scale: 1.2, opacity: 0.8, y: 30 }}
                  whileInView={{scale: 1, opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.5  }}
+                  viewport={{ once: false, amount: 0.2  }}
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                 />
@@ -127,9 +127,9 @@ export default function FeaturedArticle({ posts }: Props) {
       </section>
 
       <motion.section
-            initial={{ opacity: 0, x: 160 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1, ease: easeInOut }}
       
       className="py-8">
