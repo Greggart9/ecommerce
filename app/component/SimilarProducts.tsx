@@ -20,9 +20,15 @@ type Props = {
 
 export default function SimilarProducts({ products }: Props) {
   return (
-    <div className='mt-20'>
+    <div className='mt-20 overflow-hidden'>
       {/* Header */}
-      <div className='flex items-center justify-between mb-6'>
+      <motion.div
+       initial={{ y: 20, filter: 'blur(10px)', opacity: 0 }}
+       whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+       viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, ease: 'easeIn' }}
+      
+      className='flex items-center justify-between mb-6'>
         <div>
           <span className='text-xs uppercase tracking-widest text-black border rounded-full px-3 py-2 bg-gray-100'>
             Similar Items
@@ -38,16 +44,21 @@ export default function SimilarProducts({ products }: Props) {
         >
           View All →
         </Link>
-      </div>
+      </motion.div>
 
       {/* Products grid */}
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+      <motion.div
+        initial={{ x: 160, filter: 'blur(10px)', opacity: 0 }}
+        whileInView={{ x: 0, filter: 'blur(0px)', opacity: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeIn' }}
+       className='grid grid-cols-1 md:grid-cols-3 gap-6'>
         {products.map((product) => (
           <Link href={`/store/${product.slug}`} key={product.id} className='group'>
             <motion.div
               whileHover={{ y: -4 }}
               transition={{ type: 'spring', stiffness: 200 }}
-              className='rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition'
+              className='rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition'
             >
               <div className='relative aspect-square overflow-hidden'>
                 <img
@@ -67,10 +78,10 @@ export default function SimilarProducts({ products }: Props) {
             </motion.div>
           </Link>
         ))}
-      </div>
+      </motion.div>
 
       {/* Features bar */}
-      <div className='mt-15 md:mt-30 grid grid-cols-1 md:grid-cols-3  border rounded-2xl'>
+      <div className='mt-15 md:mt-30 grid grid-cols-1 md:grid-cols-3  border rounded-lg'>
         {[
           { icon: <Truck className='h-8 w-8' />, label: 'Worldwide shipping' },
           { icon: <Zap className='h-8 w-8' />, label: 'Fast shipping' },

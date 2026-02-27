@@ -31,7 +31,7 @@ const Hero = ({ posts, products }: HeroProps) => {
     return (
         <div className="flex flex-col items-center justify-center w-full h-fit">
             {/* EMPTY DIV */}
-            <div className="h-35 md:h-49" />
+            <div className="h-45  md:h-49" />
 
             {/* LANDING */}
             <motion.div
@@ -98,7 +98,7 @@ const Hero = ({ posts, products }: HeroProps) => {
                         Store
                     </Button>
 
-                    <span className="mt-10 sm:mt-6">
+                    <span className="mt-10 pt-10 md:pt-15 sm:mt-6">
                         <motion.img
                             ref={imgRef}
                             src="/assets/asset4.png"
@@ -133,8 +133,14 @@ const Hero = ({ posts, products }: HeroProps) => {
             </section>
 
             {/* STORE */}
-            <section className="mt-15 xl:mt-30 mb-10">
-                <div className="h-70 xl:h-57.5">
+            <section className="mt-15 xl:mt-30">
+                <motion.div
+                 initial={{ y: 20, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ delay: 0.2, duration: 0.5, ease: 'easeIn' }}
+                
+                className="h-70 xl:h-57.5">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-9">Store</button>
                     <div className="flex flex-col xl:flex-row justify-between items-start xl:items-end h-26 text-black">
                         <h2 className="font-serif text-[26px] sm:text-4xl/10 mb-5 lg-mb-0  lg:text-[45px] lg:leading-14 font-medium text-black">
@@ -148,18 +154,24 @@ const Hero = ({ posts, products }: HeroProps) => {
                         </Button>
                         </Link>
                     </div>
-                </div>
+                </motion.div>
                 <Store products={products} />
             </section>
 
             {/* STATS AND FEATURES */}
-            <section className="mt-50 md:mb-20 xl:mb-30">
+            <section className="mt-20 sm:mt-30 md:mt-50 w-full ">
                 <StatsFeatures />
             </section>
 
             {/* BLOG */}
             <section className="w-full mb-15 sm:mb-30">
-                <div className="h-57.5 mb-10 md:mb-0">
+                <motion.div
+                 initial={{ y: 20, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ delay: 0.2, duration: 0.8, ease: 'easeIn' }}
+                
+                className="h-57.5 mb-10 md:mb-0">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-9">Blog</button>
                     <div className=" flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 items-start md:items-end h-26 text-black">
                         <h2 className="font-serif text-[26px] sm:text-4xl/12 xl:text-5xl/14 font-medium text-black">
@@ -174,7 +186,7 @@ const Hero = ({ posts, products }: HeroProps) => {
                         </Button>
                         </Link>
                     </div>
-                </div>
+                </motion.div>
                 <HomeBlog posts={posts} />
 
             </section>

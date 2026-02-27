@@ -1,13 +1,20 @@
+"use client"
 import React from 'react'
 import Button from '../component/button1'
 import FAQs from '../component/faqs'
 import Footer from '../component/footer'
+import { motion } from 'framer-motion'
 
 const SupportPage = () => {
   return (
     <div className="flex flex-col items-center justify-center px-6 md:px-10 w-full pt-24">
       {/* FORM */}
-      <section className="w-full max-w-360 py-10 md:py-16">
+      <motion.section
+      initial={{ y: 30, filter: 'blur(10px)', opacity: 0 }}
+      whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.8, ease: 'easeIn' }}
+       className="w-full max-w-360 py-10 md:py-16">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.5fr]">
           {/* LEFT */}
           <div className="space-y-6">
@@ -34,9 +41,13 @@ const SupportPage = () => {
             <Button variant="secondary">Our FAQs</Button>
 
             <div className="overflow-hidden rounded-lg border bg-neutral-100">
-              <img
+              <motion.img
                 src="/assets/asset35.png"
                 alt="Support visual"
+                initial={{ scale: 1.2 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: false, amount: 0.5 }}
+                  transition={{ duration: 1, ease: 'easeIn' }}
                 className="h-58 w-full object-cover"
               />
             </div>
@@ -120,7 +131,7 @@ const SupportPage = () => {
             </form>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQS */}
       <section className="mt-15 md:mt-35">

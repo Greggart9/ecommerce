@@ -1,6 +1,7 @@
 "use client"
 
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { FaLinkedin, FaUpwork, FaXTwitter } from 'react-icons/fa6'
 import Button from './button1'
 
@@ -9,9 +10,17 @@ const Footer = () => {
         <div className="w-full">
             {/* THE IMAGE SEC */}
             <section
-                className="relative overflow-hidden rounded-3xl bg-cover w-full bg-center px-8 py-28"
-                style={{ backgroundImage: "url('/assets/asset33.png')" }}
+                className="relative overflow-hidden rounded-3xl w-full px-8 py-28"
             >
+                <motion.div
+                    className="pointer-events-none absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: "url('/assets/asset33.png')" }}
+                    initial={{scale: 1.2}}
+                    whileInView={{scale: 1  }}
+                    viewport={{ once: false, amount: 0.4  }}
+                    transition={{ duration: 1, ease: 'easeInOut' }}
+                />
+
                 {/* soft overlay for readability */}
                 <div className="pointer-events-none absolute inset-0 bg-black/10" />
 
@@ -175,13 +184,19 @@ const Footer = () => {
             </section>
 
             {/* BRANDNAME */}
-            <section className="mx-auto w-full overflow-hidden py-12">
+            <motion.section
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+            
+            className="mx-auto w-full overflow-hidden py-12">
                 <div className="text-center  md:mt-20">
                     <h2 className="font-serif text-[16vw] leading-none tracking-wide text-transparent bg-clip-text bg-linear-to-b from-neutral-700 via-neutral-300 to-neutral-100">
                         ESSENTIAL
                     </h2>
                 </div>
-            </section>
+            </motion.section>
         </div>
     )
 }

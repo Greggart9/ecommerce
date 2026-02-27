@@ -46,16 +46,17 @@ export default function ScrollCircleGallery() {
   return (
     <section
       ref={ref}
-      className="relative h-fit -mt-50 flex items-center justify-center overflow-hidden"
+      className="relative h-fit flex items-center justify-center overflow-hidden"
     >
       {/* Rotating circle */}
       <motion.div
         style={{ rotate: smoothRotate }}
-        className="relative w-375 h-375 flex items-center justify-center rounded-full"
+        className="relative w-250 h-250 flex items-center justify-center rounded-full"
       >
         {images.map((src, i) => {
           const angle = (360 / images.length) * i
-          const radius = 460
+          const radius = 400 // Default radius for smaller screens
+          
 
           return (
             <div
@@ -79,13 +80,18 @@ export default function ScrollCircleGallery() {
       </motion.div>
 
       {/* Center content */}
-      <div className="absolute text-center max-w-md">
+      <motion.div 
+          initial={{ y: -20, filter: 'blur(10px)', opacity: 0 }}
+          whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+      className="absolute text-center max-w-md">
         <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">Stats</button>
 
-        <h2 className="text-5xl font-serif leading-tight">
+        <h2 className="text-[40px] leading-11 md:text-5xl/16 font-serif font-normal text-black text-center">
           1200+ Products Got
-          <br />
-          <span className="text-neutral-500">Sold Last Month</span>
+          <br className='hidden md:block' />
+          <span className="text-neutral-500"> Sold Last Month</span>
         </h2>
 
         <p className="mt-6 mb-8 text-neutral-600">
@@ -94,7 +100,7 @@ export default function ScrollCircleGallery() {
         <Button onClick={() => (window.location.href = '/store')} variant="primary">
           Store
         </Button>
-      </div>
+      </motion.div>
     </section>
   )
 }

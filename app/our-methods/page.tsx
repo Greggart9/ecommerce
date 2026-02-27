@@ -1,14 +1,22 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import { FiCheckCircle } from 'react-icons/fi'
 import Footer from '../component/footer'
+import { easeIn, easeOut, motion } from 'framer-motion'
 
 const OurMethodsPage = () => {
   return (
     <div className="flex flex-col items-center justify-center px-5 md:px-10 w-full pt-25">
       {/* HERO SECTION */}
       <section className="w-full mt-15 md:mt-20">
-        <div className="h-40 mb-15 xl:mb-0">
+        <motion.div
+                  initial={{ y: 20, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ duration: 0.8, ease: 'easeIn' }}
+        
+        className="h-40 mb-15 xl:mb-0">
           <div className="flex flex-col xl:flex-row xl:justify-between items-start xl:items-center">
             <h2 className="font-serif text-4xl/12 xl:text-5xl/16 font-medium text-black">
               As Natural As You.
@@ -21,21 +29,32 @@ const OurMethodsPage = () => {
               insights and intentional choices.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         <div>
-          <img
+          <div className='w-full h-175 overflow-hidden rounded-lg'> 
+          <motion.img
             src="/assets/asset36.png"
             alt="Our Methods"
-            className="w-full h-175 rounded-lg"
+              initial={{ scale: 1.2 }} 
+              whileInView={{ scale: 1 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 1, ease: easeOut}}
+            className="w-full h-full object-cover rounded-lg"
           />
+          </div>
         </div>
       </section>
 
       {/* OUR METHODS SECTION */}
       <section className="mt-20 xl:mt-40">
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-center">
+        <motion.div
+                  initial={{ y: 40, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ duration: 0.8, ease: 'easeIn' }}
+         className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
             Our methods
           </button>
@@ -49,12 +68,19 @@ const OurMethodsPage = () => {
           <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center sm:max-w-xs">
             We blend high-performing formulas with naturally derived ingredients.
           </p>
-        </div>
+        </motion.div>
 
         {/* Methods Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-10 sm:mt-20">
+          
           {/* LEFT SIDE */}
-          <div className="space-y-6">
+          <motion.div
+                  initial={{ y: 50, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.1 }}
+                 transition={{ duration: 0.8, ease: 'easeIn' }}
+          
+          className="space-y-6">
             {/* Eco-Friendly Packaging Card */}
             <div className="bg-gray-100 rounded-lg p-8">
               <h3 className="text-2xl font-serif font-medium text-black mb-4">
@@ -97,22 +123,39 @@ const OurMethodsPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT SIDE */}
-          <div className="space-y-8">
+          <motion.div
+                initial={{ y: 50, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.2 }}
+                 transition={{ delay: 0.1, duration: 0.8, ease: 'easeIn' }}
+            className="space-y-8 overflow-hidden rounded-lg">
             {/* Energy Image */}
-            <div className="relative w-full h-88 rounded-lg overflow-hidden">
+            <motion.div
+            initial={{scale: 1.3}}
+                 whileInView={{scale: 1,  }}
+                  viewport={{ once: false, amount: 0.4  }}
+                  transition={{duration: 1, ease: 'easeIn'}}
+                  
+            className="relative w-full h-88 rounded-lg overflow-hidden">
               <Image
                 src="/assets/asset37.png"
                 alt="Renewable energy"
                 fill
                 className="object-cover"
               />
-            </div>
+            </motion.div>
 
             {/* Content Section */}
-            <div>
+            <motion.div
+                initial={{ y: 20, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ delay: 0.2, duration: 0.8, ease: 'easeIn' }}
+            
+            >
               <button className="px-4 py-2 bg-gray-200 rounded-full">
                 Formulas
               </button>
@@ -152,15 +195,20 @@ const OurMethodsPage = () => {
                   <p className="text-gray-600 text-base mt-2">Eco-friendly packaging</p>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
        
       {/* TEAM SECTION */}
-      <section className="mt-20 md:mt-40 w-full">
+      <section className="mt-20 md:mt-40 w-full overflow-hidden">
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-center">
+        <motion.div
+                  initial={{ y: 30, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ duration: 0.8, ease: 'easeIn' }}
+         className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
             Experts
           </button>
@@ -174,10 +222,16 @@ const OurMethodsPage = () => {
           <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center sm:max-w-xs">
             At Essential, we believe beauty should feel effortless and empowering.
           </p>
-        </div>
+        </motion.div>
 
         {/* Team Members Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+        <motion.div
+                  initial={{ x: 160, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ x: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ delay: 0.2, duration: 0.8, ease: 'easeIn' }}
+        
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
           {/* Team Member 1 */}
           <div className="group bg-gray-50 rounded-lg cursor-pointer">
             <div className="relative w-full h-96 rounded-lg overflow-hidden">
@@ -237,13 +291,19 @@ const OurMethodsPage = () => {
               </h3>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* TESTIMONIALS SECTION */}
-      <section className="mt-20 md:mt-40 w-full">
+      <section className="mt-20 md:mt-40 w-full overflow-hidden">
         {/* Section Header */}
-        <div className="flex flex-col items-center justify-center">
+        <motion.div
+                  initial={{ y: 30, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ duration: 0.8, ease: 'easeIn' }}
+        
+        className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
             Testimonials
           </button>
@@ -257,10 +317,16 @@ const OurMethodsPage = () => {
           <p className="mt-6 mb-8 font-medium text-lg text-gray-600 text-center sm:max-w-xs">
             Our testimonials reflect genuine experiences from customers.
           </p>
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+        <motion.div
+            initial={{ x: -160, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ x: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ duration: 0.8, ease: 'easeIn' }}
+        
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16 overflow-hidden">
           {/* Testimonial 1 */}
           <div className="relative rounded-2xl overflow-hidden p-3">
             <Image
@@ -425,7 +491,7 @@ const OurMethodsPage = () => {
               <h4 className="text-lg font-medium text-black">Rachel Kim</h4>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* FOOTER */}

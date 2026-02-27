@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { easeInOut, motion, useMotionValue, useSpring } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Eye } from 'lucide-react'
@@ -47,15 +47,18 @@ export default function FeaturedArticle({ posts }: Props) {
   if (!featured) return <p className="text-gray-500">No posts yet.</p>
 
   return (
-    <div>
-      <section>
-        <Link href={`/blog/${featured.slug}`}>
-          <motion.article
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+    <motion.div
+            initial={{ opacity: 0, x: -160 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -6 }}
+            className="overflow-hidden">
+            
+      <section>
+        <Link href={`/blog/${featured.slug}`}>
+          <article
+
             className="group cursor-pointer rounded-xl border bg-white shadow-sm hover:shadow-lg transition"
           >
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-2 md:gap-10">
@@ -68,6 +71,9 @@ export default function FeaturedArticle({ posts }: Props) {
                   src={featured.cover_image_url}
                   alt={featured.title}
                   className="w-full xl:w-174 h-90 md:h-124 xl:h-143 object-cover rounded-xl"
+                  initial={{scale: 1.2, opacity: 0.8, y: 30 }}
+                 whileInView={{scale: 1, opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.5  }}
                   whileHover={{ scale: 1.15 }}
                   transition={{ duration: 0.8, ease: 'easeOut' }}
                 />
@@ -116,11 +122,17 @@ export default function FeaturedArticle({ posts }: Props) {
                 </div>
               </div>
             </div>
-          </motion.article>
+          </article>
         </Link>
       </section>
 
-      <section className="py-8">
+      <motion.section
+            initial={{ opacity: 0, x: 160 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, ease: easeInOut }}
+      
+      className="py-8">
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {visiblePosts.map((post) => (
             <Link href={`/blog/${post.slug}`} className="group" key={post.id}>
@@ -134,12 +146,14 @@ export default function FeaturedArticle({ posts }: Props) {
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
                 >
+                  
                   <Image
                     src={post.cover_image_url}
                     alt={post.title}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  
                   <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
                     <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
                     <motion.div
@@ -173,7 +187,7 @@ export default function FeaturedArticle({ posts }: Props) {
             </button>
           </div>
         )}
-      </section>
-    </div>
+      </motion.section>
+    </motion.div>
   )
 }

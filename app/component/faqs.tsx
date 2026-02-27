@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import Button from './button1'
 
@@ -39,7 +40,13 @@ const FAQs = () => {
   return (
     <div className="mb-20 md:mb-30">
       {/* FEATURES */}
-      <section className="px-4 md:px-6">
+      <motion.section
+                initial={{ y: 30, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ duration: 0.8, ease: 'easeIn' }}
+      
+      className="px-4 md:px-6">
         <div className="flex flex-col items-center justify-center">
           <button className="px-4 py-2 bg-gray-200 rounded-full mb-5 md:mb-7">
             FAQs
@@ -57,9 +64,14 @@ const FAQs = () => {
             Get in Touch
           </Button>
         </div>
-      </section>
+      </motion.section>
 
-      <section className="mx-auto max-w-2xl md:px-6 py-10 md:py-15">
+      <motion.section
+                initial={{ y: 100, filter: 'blur(10px)', opacity: 0.5 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: true, amount: 0.3 }}
+                 transition={{ duration: 0.5, ease: 'easeInOut' }}
+        className="mx-auto max-w-2xl md:px-6 py-10 md:py-15">
         <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
@@ -101,7 +113,7 @@ const FAQs = () => {
             )
           })}
         </div>
-      </section>
+      </motion.section>
     </div>
   )
 }

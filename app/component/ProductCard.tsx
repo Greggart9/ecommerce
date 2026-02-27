@@ -51,9 +51,13 @@ export default function ProductCard({
           <motion.img
             src={image}
             alt={title}
+            initial={{scale: 1.2, opacity: 0.8, y: 30 }}
+            whileInView={{scale: 1, opacity: 1, y: 0 }}
             whileHover={{ scale: 1.08 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            viewport={{ once: false, amount: 0.3  }}
+            transition={{ duration: 0.6, ease: 'easeOut',  delay: 0.5  }}
             className="h-full w-full object-cover"
+            
           />
 
           {/* Hover overlay + floating eye */}

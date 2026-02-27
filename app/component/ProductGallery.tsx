@@ -11,7 +11,7 @@ export default function ProductGallery({ mainImage, galleryImages }: Props) {
   return (
     <div className='grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-3 h-160'>
       {/* Large main image spanning full height */}
-      <div className='row-span-2 rounded-2xl overflow-hidden bg-neutral-100'>
+      <div className='row-span-2 rounded-lg overflow-hidden bg-neutral-100'>
         <img
           src={allImages[0]}
           alt='Product main'
@@ -21,7 +21,7 @@ export default function ProductGallery({ mainImage, galleryImages }: Props) {
 
       {/* Two smaller images stacked on the right */}
       {allImages.slice(1, 3).map((img, i) => (
-        <div key={i} className='rounded-2xl overflow-hidden  bg-neutral-100 '>
+        <div key={i} className='rounded-lg overflow-hidden  bg-neutral-100 '>
           <img
             src={img}
             alt={`Product view ${i + 2}`}

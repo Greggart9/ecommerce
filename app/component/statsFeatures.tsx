@@ -1,15 +1,28 @@
+'use client'
+
+import { motion } from 'framer-motion'
+
 import React from 'react'
 import ScrollCircleGallery from './ScrollCircleGallery'
 import Button from './button1'
 
 const StatsFeatures = () => {
     return (
-        <div className=" ">
-            {/* <ScrollCircleGallery /> */}
+        <div>
+            <div className='overflow-hidden'>
+            <ScrollCircleGallery />
+            </div>
+
 
             {/* FEATURES */}
-            <section>
-                <div className="flex flex-col items-center justify-center ">
+            <section className='mt-20 sm:mt-30 md:mt-40'>
+                <motion.div
+                 initial={{ y: 20, filter: 'blur(10px)', opacity: 0 }}
+                 whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
+                 viewport={{ once: false, amount: 0.3 }}
+                 transition={{ delay: 0.2, duration: 0.8, ease: 'easeIn' }}
+                
+                className="flex flex-col items-center justify-center ">
                     <button className="px-4 py-2 bg-gray-200 rounded-full mb-7">
                         Features
                     </button>
@@ -30,7 +43,7 @@ const StatsFeatures = () => {
                     >
                         Our Methods
                     </Button>
-                </div>
+                </motion.div>
 
                 {/* MATERIALS */}
                 <div className="mx-auto py-14">
@@ -58,10 +71,14 @@ const StatsFeatures = () => {
                                 <h3 className="text-center text-base font-medium mb-6">Plant based</h3>
 
                                 <div className="overflow-hidden rounded-xl">
-                                    <img
+                                    <motion.img
                                         src="/assets/asset22.png"
                                         alt="Plant based"
                                         className="w-full h-105 object-cover"
+                                        initial={{  scale: 1.2 }}
+                                        whileInView={{  scale: 1 }}
+                                        viewport={{ once: false, amount: 0.3 }}
+                                        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
                                     />
                                 </div>
                             </div>
@@ -71,10 +88,14 @@ const StatsFeatures = () => {
                                 <h3 className="text-center text-base font-medium mb-6">Organic</h3>
 
                                 <div className="overflow-hidden rounded-xl">
-                                    <img
+                                    <motion.img
                                         src="/assets/asset23.png"
                                         alt="Organic"
                                         className="w-full h-105 object-cover"
+                                        initial={{  scale: 1.2 }}
+                                        whileInView={{  scale: 1 }}
+                                        viewport={{ once: false, amount: 0.3 }}
+                                        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
                                     />
                                 </div>
                             </div>
@@ -106,10 +127,14 @@ const StatsFeatures = () => {
                                 <h3 className="text-center text-base font-medium mb-6">All natural</h3>
 
                                 <div className="overflow-hidden rounded-xl">
-                                    <img
+                                    <motion.img
                                         src="/assets/asset24.png"
                                         alt="All natural"
                                         className="w-full h-105 object-cover"
+                                        initial={{  scale: 1.2 }}
+                                        whileInView={{  scale: 1 }}
+                                        viewport={{ once: false, amount: 0.3 }}
+                                        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
                                     />
                                 </div>
                             </div>
@@ -121,10 +146,14 @@ const StatsFeatures = () => {
                                 </h3>
 
                                 <div className="overflow-hidden rounded-xl">
-                                    <img
+                                    <motion.img
                                         src="/assets/asset25.png"
                                         alt="Chemicals free"
                                         className="w-full h-105 object-cover"
+                                        initial={{ scale: 1.2 }}
+                                        whileInView={{  scale: 1 }}
+                                        viewport={{ once: false, amount: 0.3 }}
+                                        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
                                     />
                                 </div>
                             </div>
@@ -159,10 +188,14 @@ const StatsFeatures = () => {
                                 </h3>
 
                                 <div className="overflow-hidden rounded-xl">
-                                    <img
+                                    <motion.img
                                         src="/assets/asset26.png"
                                         alt="Handled with care"
                                         className="w-full h-105 object-cover"
+                                        initial={{  scale: 1.2 }}
+                                        whileInView={{  scale: 1 }}
+                                        viewport={{ once: false, amount: 0.3 }}
+                                        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
                                     />
                                 </div>
                             </div>
@@ -174,10 +207,14 @@ const StatsFeatures = () => {
                                 </h3>
 
                                 <div className="overflow-hidden rounded-xl">
-                                    <img
+                                    <motion.img
                                         src="/assets/asset27.jpeg"
                                         alt="Expert design"
                                         className="w-full h-105 object-cover"
+                                        initial={{ scale: 1.2 }}
+                                        whileInView={{  scale: 1 }}
+                                        viewport={{ once: false, amount: 0.3 }}
+                                        transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
                                     />
                                 </div>
                             </div>
