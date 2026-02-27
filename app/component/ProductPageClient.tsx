@@ -24,7 +24,7 @@ type Product = {
   description_body_2?: string
 }
 
-export default function ProductPageClient({ product }: { product: Product }) {
+export default function ProductPageClient({ product }: { product: any }) {
   const price = parseFloat(product.price as any)
   const originalPrice = product.original_price ? parseFloat(product.original_price as any) : null
 
