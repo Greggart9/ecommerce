@@ -6,6 +6,7 @@ export type Product = {
   currency: string
   image: string
   href: string
+  slug: string
 }
 
 export const products: Product[] = [
@@ -17,6 +18,7 @@ export const products: Product[] = [
     currency: 'USD',
     image: '/assets/asset5.jpeg',
     href: '/store/lustre-dew-elixir',
+    slug: 'lustre-dew-elixir',
   },
   {
     id: 2,
@@ -26,6 +28,7 @@ export const products: Product[] = [
     currency: 'USD',
     image: '/assets/asset6.png',
     href: '/store/hydrating-day-cream',
+    slug: 'hydrating-day-cream',
   },
   {
     id: 3,
@@ -35,6 +38,7 @@ export const products: Product[] = [
     currency: 'USD',
     image: '/assets/asset7.png',
     href: '/store/gentle-foaming-cleanser',
+    slug: 'gentle-foaming-cleanser',
   },
   
   {
@@ -45,6 +49,7 @@ export const products: Product[] = [
     currency: 'USD',
     image: '/assets/asset8.png',
     href: '/store/replenishing-night-balm',
+    slug: 'replenishing-night-balm',
   },
   {
     id: 5,
@@ -54,6 +59,7 @@ export const products: Product[] = [
     currency: 'USD',
     image: '/assets/asset9.png',
     href: '/store/brightening-toner',
+    slug: 'brightening-toner',
   },
     {
     id: 6,
@@ -63,5 +69,6 @@ export const products: Product[] = [
     currency: 'USD',
     image: '/assets/asset11.png',
     href: '/store/soothing-eye-cream',
+    slug: 'soothing-eye-cream',
   },
 ]
