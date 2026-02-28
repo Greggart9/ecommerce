@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Navbar from "./component/Navbar";
 import "./globals.css";
+import { CartProvider } from "./context/CartContext";
 
 
 const poppins = Poppins({
@@ -42,9 +43,10 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <div className="bg-white border-x border-gray-200 ">
-          
+        <CartProvider>
         <Navbar />
         {children }
+        </CartProvider>
         </div>
       </body>
     </html>

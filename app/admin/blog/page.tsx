@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Footer from '../../component/footer'
+import AdminLogout from '../../component/AdminLogout'
 
 export default function AdminPage() {
   const router = useRouter()
@@ -112,6 +113,12 @@ export default function AdminPage() {
   return (
     <div className='w-full'>
       <div className='max-w-2xl mx-auto px-5 mt-20 py-10'>
+
+          <div className='flex justify-end mb-4'>
+          <AdminLogout />
+          </div>
+
+
         <h1 className='font-serif text-4xl text-black mb-2'>Create New Post</h1>
         <p className='text-gray-500 mb-8'>Fill in the details below to publish a new blog post.</p>
 

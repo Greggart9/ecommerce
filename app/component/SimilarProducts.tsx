@@ -48,8 +48,8 @@ export default function SimilarProducts({ products }: Props) {
 
       {/* Products grid */}
       <motion.div
-        initial={{ x: 160, filter: 'blur(10px)', opacity: 0 }}
-        whileInView={{ x: 0, filter: 'blur(0px)', opacity: 1 }}
+        initial={{ y: 30, filter: 'blur(10px)', opacity: 0 }}
+        whileInView={{ y: 0, filter: 'blur(0px)', opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: 'easeIn' }}
        className='grid grid-cols-1 md:grid-cols-3 gap-6'>

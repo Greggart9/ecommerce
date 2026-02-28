@@ -1,7 +1,9 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import ProductGallery from './ProductGallery'
+import { useCart } from '../context/CartContext'
 
 type Product = {
   title: string
@@ -22,20 +24,23 @@ type Product = {
   description_image_1?: string
   description_heading_2?: string
   description_body_2?: string
+  id: number
+  brand: string
+  slug: string
 }
 
 export default function ProductPageClient({ product }: { product: any }) {
-  const price = parseFloat(product.price as any)
-  const originalPrice = product.original_price ? parseFloat(product.original_price as any) : null
+  const price = parseFloat(product.price)
+  const originalPrice = product.original_price ? parseFloat(product.original_price) : null
 
   return (
     <>
       {/* Top section */}
       <div className='grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-10 mt-4 items-start'>
 
-        {/* Gallery — fade and scale in */}
+        {/* Gallery — fade up from top */}
         <motion.div
-          initial={{ opacity: 0, y:-40 }}
+          initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
@@ -45,7 +50,7 @@ export default function ProductPageClient({ product }: { product: any }) {
           />
         </motion.div>
 
-        {/* Details — slide in from right */}
+        {/* Details — fade up from bottom */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -109,14 +114,12 @@ export default function ProductPageClient({ product }: { product: any }) {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <button className='mt-2 rounded-full bg-black text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition w-fit'>
-            Available Here →
-          </button>
+          {/* Quantity + Cart */}
+          <CartActions product={product} />
         </motion.div>
       </div>
 
-      {/* Description sections — fade up on scroll */}
+      {/* Description sections */}
       <div className='mt-16 flex flex-col gap-12 max-w-3xl'>
         {product.description_heading_1 && (
           <motion.div
@@ -148,21 +151,105 @@ export default function ProductPageClient({ product }: { product: any }) {
           </motion.div>
         )}
 
-        {/* Description image — fade up on scroll */}
+        {/* Description image — scroll linked scale */}
         {product.description_image_1 && (
-        <div className='w-full h-92 rounded-lg overflow-hidden mt-2'>
-          <motion.img
+          <DescriptionImage
             src={product.description_image_1}
-            alt={product.description_heading_1}
-            initial={{scale: 1.2, opacity: 0, y: 30 }}
-            whileInView={{scale: 1, opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
-            className='w-full h-92 object-cover '
+            alt={product.description_heading_1 ?? ''}
           />
-        </div>
         )}
       </div>
     </>
+  )
+}
+
+function CartActions({ product }: { product: any }) {
+  const { addToCart } = useCart()
+  const [quantity, setQuantity] = useState(1)
+  const [added, setAdded] = useState(false)
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      title: product.title,
+      brand: product.brand,
+      price: parseFloat(product.price),
+      currency: product.currency,
+      image_url: product.image_url,
+      slug: product.slug,
+      quantity,
+    })
+    setAdded(true)
+    setTimeout(() => setAdded(false), 2000)
+  }
+
+  const handleBuyNow = () => {
+    addToCart({
+      id: product.id,
+      title: product.title,
+      brand: product.brand,
+      price: parseFloat(product.price),
+      currency: product.currency,
+      image_url: product.image_url,
+      slug: product.slug,
+      quantity,
+    })
+    window.location.href = '/cart'
+  }
+
+  return (
+    <div className='flex flex-col gap-3 mt-2'>
+      {/* Quantity selector */}
+      <div className='flex items-center gap-3 cursor-pointer'>
+        <span className='text-sm text-gray-500'>Quantity</span>
+        <div className='flex items-center  gap-3 border rounded-full px-4 py-2'>
+          <button
+            onClick={() => setQuantity(q => Math.max(1, q - 1))}
+            className='text-gray-500 cursor-pointer  hover:text-black transition font-medium'
+          >−</button>
+          <span className='text-sm w-4 text-center'>{quantity}</span>
+          <button
+            onClick={() => setQuantity(q => q + 1)}
+            className='text-gray-500 cursor-pointer hover:text-black transition font-medium'
+          >+</button>
+        </div>
+      </div>
+
+      {/* Buttons */}
+      <div className='flex gap-3'>
+        <button
+          onClick={handleAddToCart}
+          className={`flex-1 rounded-full border px-6 cursor-pointer py-3 text-sm font-medium transition ${
+            added
+              ? 'bg-blue-300 text-white border-blue-300'
+              : 'bg-white text-black hover:bg-black hover:text-white'
+          }`}
+        >
+          {added ? '✓ Added to Cart' : 'Add to Cart'}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function DescriptionImage({ src, alt }: { src: string; alt: string }) {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  })
+
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1.2, 1])
+  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1])
+
+  return (
+    <div ref={ref} className='w-full h-92 rounded-lg overflow-hidden mt-2'>
+      <motion.img
+        src={src}
+        alt={alt}
+        style={{ scale, opacity }}
+        className='w-full h-full object-cover'
+      />
+    </div>
   )
 }

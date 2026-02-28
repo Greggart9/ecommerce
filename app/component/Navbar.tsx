@@ -6,6 +6,8 @@ import { Menu, X } from 'lucide-react'
 import Button from './button1'
 import Button2 from './button2'
 import Link from 'next/link'
+import { ShoppingBag } from 'lucide-react'
+import CartIcon from './CartIcon'
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -55,7 +57,8 @@ const Navbar = () => {
           </span>
 
           {/* USER ACTION - DESKTOP */}
-          <span className="hidden md:block">
+          <span className="hidden md:flex items-center gap-3">
+            <CartIcon />
             <Button onClick={() => (window.location.href = '/store')} variant="secondary">
               Shop
             </Button>
@@ -107,8 +110,10 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <div className='flex justify-center w-full'>
-            <Button onClick={() => (window.location.href = '/support')} variant="secondary">
+            <div className='flex flex-col items-center gap-3 justify-center w-full'>
+              <CartIcon />
+              
+            <Button onClick={() => (window.location.href = '/store')} variant="secondary">
               Shop
             </Button>
             </div>

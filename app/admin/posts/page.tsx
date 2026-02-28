@@ -1,6 +1,7 @@
 import sql from '@/app/db'
 import DeleteButton from './DeleteButton'
 import Footer from '@/app/component/footer'
+import AdminLogout from '../../component/AdminLogout'
 
 export default async function ManagePosts() {
   const posts = await sql`SELECT * FROM posts ORDER BY created_at DESC` as any[]
@@ -8,6 +9,11 @@ export default async function ManagePosts() {
   return (
     <div className='w-full'>
       <div className='max-w-2xl mx-auto px-5 py-10 mt-20'>
+
+          <div className='flex justify-end mb-4'>
+          <AdminLogout />
+         </div>
+
         <h1 className='font-serif text-3xl text-black mb-2'>Manage Posts</h1>
         <p className='text-gray-500 mb-8'>Delete or review your existing posts.</p>
 

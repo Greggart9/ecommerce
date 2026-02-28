@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Footer from '../../component/footer'
+import AdminLogout from '../../component/AdminLogout'
 
 export default function AdminProducts() {
   const router = useRouter()
@@ -142,6 +143,12 @@ export default function AdminProducts() {
   return (
     <>
       <div className='max-w-2xl mx-auto px-5 py-10 mt-25'>
+
+  <div className='flex justify-end mb-4'>
+    <AdminLogout />
+  </div>
+
+
       <h1 className='font-serif text-4xl text-black mb-2'>Add New Product</h1>
       <p className='text-gray-500 mb-8'>Fill in the details below to add a new product.</p>
 

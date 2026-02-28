@@ -1,7 +1,14 @@
 import { NextResponse } from 'next/server'
 import sql from '@/app/db'
+import { apiRatelimit } from '@/app/lib/ratelimit'
 
-export async function GET() {
+export async function GET(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+  const { success } = await apiRatelimit.limit(ip)
+  if (!success) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
+
   try {
     const products = await sql`
       SELECT * FROM products
@@ -15,6 +22,13 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+  const { success } = await apiRatelimit.limit(ip)
+  if (!success) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
+
+
   try {
     const body = await request.json()
     const {
@@ -55,6 +69,12 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+  const { success } = await apiRatelimit.limit(ip)
+  if (!success) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
+
   try {
     const { id } = await request.json()
     await sql`DELETE FROM products WHERE id = ${id}`

@@ -1,8 +1,17 @@
 import { NextResponse } from 'next/server'
 import sql from '@/app/db'
+import { apiRatelimit } from '@/app/lib/ratelimit'
+
 
 export async function POST(request: Request) {
+      const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+    const { success } = await apiRatelimit.limit(ip)
+    if (!success) {
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+    }
+
   try {
+
     const body = await request.json()
     const { tag, title, minutes_read, date, cover_image, body: postBody, second_image, author, slug, cover_image_url, author_name, author_role, author_image_url, featured } = body
 
@@ -23,6 +32,12 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+  const { success } = await apiRatelimit.limit(ip)
+  if (!success) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
+
   try {
     const { id } = await request.json()
     await sql`DELETE FROM posts WHERE id = ${id}`

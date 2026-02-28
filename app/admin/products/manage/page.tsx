@@ -1,13 +1,20 @@
 import sql from '@/app/db'
 import DeleteProductButton from './DeleteProductButton'
 import Footer from '../../../component/footer'
+import AdminLogout from '../../../component/AdminLogout'
 
 export default async function ManageProducts() {
   const products = await sql`SELECT * FROM products ORDER BY created_at DESC` as any[]
 
   return (
     <>
+
       <div className='max-w-2xl mx-auto px-5 py-10 mt-25'>
+          <div className='flex justify-end mb-4'>
+          <AdminLogout />
+          </div>
+
+
       <h1 className='font-serif text-4xl text-black mb-2'>Manage Products</h1>
       <p className='text-gray-500 mb-8'>Delete or review your existing products.</p>
 
@@ -38,6 +45,7 @@ export default async function ManageProducts() {
         </a>
       </div>
       </div>
+
       
       <div className='mt-10 md:mt-20 lg:mt-30 px-5 md:px-10'>
       <Footer />
