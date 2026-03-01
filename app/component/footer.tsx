@@ -142,6 +142,9 @@ const Footer = () => {
                             <h3 className="text-base font-semibold text-neutral-900">Other Pages</h3>
                             <ul className="space-y-6 text-neutral-600">
                                 <li>
+                                    <a href="/admin">Admin</a>
+                                </li>
+                                <li>
                                     <a href="/admin/products">Product's admin</a>
                                 </li>
                                 <li>

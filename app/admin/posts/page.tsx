@@ -25,7 +25,18 @@ export default async function ManagePosts() {
                 <p className='font-medium text-gray-900'>{post.title}</p>
                 <p className='text-xs text-gray-400'>{post.tag} · {post.minutes_read} min read</p>
               </div>
+
+                          <div className='flex items-center gap-3'>
+            
+              <a
+                href={`/admin/products/edit/${post.id}`}
+                className='text-sm text-blue-500 hover:text-blue-700 transition'
+              >
+                Edit
+            </a>
+            
               <DeleteButton id={post.id} />
+              </div>
             </div>
           ))}
         </div>

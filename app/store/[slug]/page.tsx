@@ -4,6 +4,7 @@ import Link from 'next/link'
 import SimilarProducts from '../../component/SimilarProducts'
 import Footer from '../../component/footer'
 import ProductPageClient from '../../component/ProductPageClient'
+import { Metadata } from 'next'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -26,6 +27,30 @@ async function getSimilarProducts(slug: string) {
   `
   return products as any[]
 }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params
+  const result = await sql`SELECT title, brand, image_url, description_body_1 FROM products WHERE slug = ${slug} LIMIT 1`
+  const product = result[0]
+
+  if (!product) return { title: 'Product Not Found' }
+
+  return {
+    title: product.title,
+    description: product.description_body_1 ?? `${product.title} by ${product.brand}`,
+    openGraph: {
+      title: `${product.title} | Essential Beauty`,
+      description: product.description_body_1 ?? `${product.title} by ${product.brand}`,
+      images: [{ url: product.image_url }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.title} | Essential Beauty`,
+      images: [product.image_url],
+    },
+  }
+}
+
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params

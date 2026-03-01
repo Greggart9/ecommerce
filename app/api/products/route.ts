@@ -84,3 +84,58 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: 'Failed to delete product' }, { status: 500 })
   }
 }
+
+
+export async function PUT(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+  const { success } = await apiRatelimit.limit(ip)
+  if (!success) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
+
+  try {
+    const body = await request.json()
+    const {
+      id, title, brand, price, original_price, currency, image_url, slug,
+      description_heading_1, description_body_1, description_image_1,
+      description_heading_2, description_body_2,
+      body_size, rating, review_count, features,
+      gallery_images, warranty, shipping_details,
+      customer_support, category, featured, in_stock
+    } = body
+
+    const product = await sql`
+      UPDATE products SET
+        title = ${title},
+        brand = ${brand},
+        price = ${price},
+        original_price = ${original_price ?? null},
+        currency = ${currency ?? 'USD'},
+        image_url = ${image_url},
+        slug = ${slug},
+        description_heading_1 = ${description_heading_1 ?? null},
+        description_body_1 = ${description_body_1 ?? null},
+        description_image_1 = ${description_image_1 ?? null},
+        description_heading_2 = ${description_heading_2 ?? null},
+        description_body_2 = ${description_body_2 ?? null},
+        body_size = ${body_size ?? null},
+        rating = ${rating ?? 0},
+        review_count = ${review_count ?? 0},
+        features = ${features ?? []},
+        gallery_images = ${gallery_images ?? []},
+        warranty = ${warranty ?? null},
+        shipping_details = ${shipping_details ?? null},
+        customer_support = ${customer_support ?? null},
+        category = ${category ?? null},
+        featured = ${featured ?? false},
+        in_stock = ${in_stock ?? true},
+        updated_at = NOW()
+      WHERE id = ${id}
+      RETURNING *
+    `
+    return NextResponse.json(product[0])
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json({ error: 'Failed to update product' }, { status: 500 })
+  }
+}

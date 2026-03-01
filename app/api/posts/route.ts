@@ -47,3 +47,43 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: 'Failed to delete post' }, { status: 500 })
   }
 }
+
+
+export async function PUT(request: Request) {
+  const ip = request.headers.get('x-forwarded-for') ?? 'anonymous'
+  const { success } = await apiRatelimit.limit(ip)
+  if (!success) {
+    return NextResponse.json({ error: 'Too many requests' }, { status: 429 })
+  }
+
+  try {
+    const body = await request.json()
+    const {
+      id, tag, title, minutes_read, date, body: postBody,
+      slug, cover_image_url, author_name, author_role,
+      author_image_url, featured
+    } = body
+
+    const post = await sql`
+      UPDATE posts SET
+        tag = ${tag},
+        title = ${title},
+        minutes_read = ${minutes_read},
+        date = ${date},
+        body = ${postBody},
+        slug = ${slug},
+        cover_image_url = ${cover_image_url},
+        author_name = ${author_name},
+        author_role = ${author_role},
+        author_image_url = ${author_image_url},
+        featured = ${featured ?? false},
+        updated_at = NOW()
+      WHERE id = ${id}
+      RETURNING *
+    `
+    return NextResponse.json(post[0])
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json({ error: 'Failed to update post' }, { status: 500 })
+  }
+}

@@ -3,6 +3,7 @@ import React from 'react'
 import Footer from '../component/footer'
 import Store from '../component/store'
 import sql from '../db'
+import { Metadata } from 'next'
 
 
 
@@ -10,6 +11,15 @@ import sql from '../db'
     SELECT * FROM products
     ORDER BY created_at DESC 
   ` as any[]
+
+  export const metadata: Metadata = {
+  title: 'Store',
+  description: 'Browse our full collection of premium skincare and beauty products.',
+  openGraph: {
+    title: 'Store | Essential Beauty',
+    description: 'Browse our full collection of premium skincare and beauty products.',
+  },
+}
 
 const StorePage = () => {
   

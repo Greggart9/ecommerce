@@ -5,6 +5,13 @@ import { motion } from 'framer-motion'
 import { X,CheckCircle2Icon, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Metadata } from 'next'
+
+// export const metadata = {
+//   title: 'Cart',
+//   description: 'Review your selected items and proceed to checkout.',
+// }
+
 
 export default function CartPage() {
   const { items, removeFromCart, updateQuantity, totalItems, totalPrice, clearCart } = useCart()

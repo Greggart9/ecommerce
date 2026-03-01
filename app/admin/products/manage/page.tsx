@@ -31,7 +31,18 @@ export default async function ManageProducts() {
                 <p className='text-xs text-gray-400'>{product.brand} · ${parseFloat(product.price).toFixed(2)}</p>
               </div>
             </div>
+
+            <div className='flex items-center gap-3'>
+            
+              <a
+                href={`/admin/products/edit/${product.id}`}
+                className='text-sm text-blue-500 hover:text-blue-700 transition'
+              >
+                Edit
+            </a>
+            
             <DeleteProductButton id={product.id} />
+            </div>
           </div>
         ))}
       </div>

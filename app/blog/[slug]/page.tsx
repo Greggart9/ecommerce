@@ -3,6 +3,7 @@ import sql from '../../db'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Footer from '@/app/component/footer'
+import { Metadata } from 'next'
 
 type BlogArticlePageProps = {
   params: Promise<{ slug: string }>
@@ -24,6 +25,30 @@ async function getRelatedPosts(slug: string) {
     LIMIT 3
   `
   return posts as any[]
+}
+
+export async function generateMetadata({ params }: BlogArticlePageProps): Promise<Metadata> {
+  const { slug } = await params
+  const result = await sql`SELECT title, tag, cover_image_url, body FROM posts WHERE slug = ${slug} LIMIT 1`
+  const post = result[0]
+
+  if (!post) return { title: 'Post Not Found' }
+
+  return {
+    title: post.title,
+    description: post.body?.slice(0, 160) ?? post.title,
+    openGraph: {
+      title: `${post.title} | Essential Beauty`,
+      description: post.body?.slice(0, 160) ?? post.title,
+      images: [{ url: post.cover_image_url }],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${post.title} | Essential Beauty`,
+      images: [post.cover_image_url],
+    },
+  }
 }
 
 const BlogArticlePage = async ({ params }: BlogArticlePageProps) => {

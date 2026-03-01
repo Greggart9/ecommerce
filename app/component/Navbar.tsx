@@ -8,6 +8,9 @@ import Button2 from './button2'
 import Link from 'next/link'
 import { ShoppingBag } from 'lucide-react'
 import CartIcon from './CartIcon'
+import SearchBar from './Search'
+
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,58 +28,52 @@ const Navbar = () => {
     >
       <div className="max-w-360 mx-auto border-x border-b border-gray-200 bg-white px-6 md:px-10">
         <nav className="flex w-full h-21.5 items-center justify-between">
-          {/* LOGO */}
-          <span>
-            <Link href="/">
-            <img
-              src="/assets/asset0.png"
-              alt="Essential Logo"
-              width={46}
-              height={46}
-              className="rounded-xl cursor-pointer"
-            />
-            </Link>
-          </span>
+  
+                {/* LOGO — left */}
+                <span className="flex-1">
+                  <Link href="/">
+                    <img
+                      src="/assets/asset0.png"
+                      alt="Essential Logo"
+                      width={46}
+                      height={46}
+                      className="rounded-xl cursor-pointer"
+                    />
+                  </Link>
+                </span>
 
-          {/* NAVIGATION LINKS - DESKTOP */}
-          <span className="hidden md:block">
-            <ul className="flex space-x-5">
-              <li>
-                <Button2 href="/store" label="Store" />
-              </li>
-              <li>
-                <Button2 href="/blog" label="Blog" />
-              </li>
-              <li>
-                <Button2 href="/our-methods" label="Our methods" />
-              </li>
-              <li>
-                <Button2 href="/support" label="Support" />
-              </li>
-            </ul>
-          </span>
+                {/* NAVIGATION LINKS — center */}
+                <span className="hidden  lg:flex flex-1 justify-center">
+                  <ul className="flex space-x-5">
+                    <li><Button2 href="/store" label="Store" /></li>
+                    <li><Button2 href="/blog" label="Blog" /></li>
+                    <li><Button2 href="/our-methods" label="Our methods" /></li>
+                    <li><Button2 href="/support" label="Support" /></li>
+                  </ul>
+                </span>
 
-          {/* USER ACTION - DESKTOP */}
-          <span className="hidden md:flex items-center gap-3">
-            <CartIcon />
-            <Button onClick={() => (window.location.href = '/store')} variant="secondary">
-              Shop
-            </Button>
-          </span>
+                {/* USER ACTIONS — right */}
+                <span className="hidden lg:flex flex-1 justify-end items-center gap-3">
+                  <SearchBar />
+                  <CartIcon />
+                  <Button onClick={() => (window.location.href = '/store')} variant="secondary">
+                    Shop
+                  </Button>
+                </span>
 
-          {/* HAMBURGER MENU - MOBILE */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden flex items-center justify-center"
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6 text-neutral-900" />
-            ) : (
-              <Menu className="h-6 w-6 text-neutral-900" />
-            )}
-          </button>
-        </nav>
+                {/* HAMBURGER — mobile only */}
+                <button
+                  onClick={toggleMenu}
+                  className="lg:hidden flex cursor-pointer items-center justify-center"
+                  aria-label="Toggle menu"
+                >
+                  {isMenuOpen ? (
+                    <X className="h-6 w-6 text-neutral-900" />
+                  ) : (
+                    <Menu className="h-6 w-6 text-neutral-900" />
+                  )}
+                </button>
+              </nav>
 
         {/* MOBILE MENU */}
         {isMenuOpen && (
@@ -85,7 +82,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-gray-200 py-6 space-y-6"
+            className="lg:hidden border-t border-gray-200 py-6 space-y-6"
           >
             <ul className="space-y-4 flex flex-col items-center justify-center">
               <li>
@@ -111,6 +108,7 @@ const Navbar = () => {
             </ul>
 
             <div className='flex flex-col items-center gap-3 justify-center w-full'>
+              <SearchBar label="Search" />
               <CartIcon />
               
             <Button onClick={() => (window.location.href = '/store')} variant="secondary">

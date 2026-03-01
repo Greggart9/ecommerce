@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../component/footer'
 import FeaturedArticle from '../component/FeaturedArticle'
 import sql from '../db'
+import { Metadata } from 'next'
 
 async function getPosts(tag?: string) {
   if (tag) {
@@ -26,6 +27,15 @@ async function getTags() {
 
 type Props = {
   searchParams: Promise<{ tag?: string }>
+}
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Read our latest beauty tips, skincare guides, and product insights.',
+  openGraph: {
+    title: 'Blog | Essential Beauty',
+    description: 'Read our latest beauty tips, skincare guides, and product insights.',
+  },
 }
 
 const Blogpage = async ({ searchParams }: Props) => {
