@@ -75,6 +75,9 @@ export default function SimilarProducts({ products }: Props) {
                 <p className='text-sm font-medium text-neutral-900'>{product.title}</p>
                 <p className='text-xs text-neutral-500'>{product.brand}</p>
               </div>
+              <div>
+                
+              </div>
             </motion.div>
           </Link>
         ))}

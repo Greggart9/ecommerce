@@ -5,12 +5,7 @@ import { motion } from 'framer-motion'
 import { X,CheckCircle2Icon, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
-import { Metadata } from 'next'
 
-// export const metadata = {
-//   title: 'Cart',
-//   description: 'Review your selected items and proceed to checkout.',
-// }
 
 
 export default function CartPage() {
@@ -141,7 +136,7 @@ export default function CartPage() {
 
               <button
                 onClick={handleProceed}
-                className='w-full rounded-full bg-black text-white py-3 text-sm font-medium hover:bg-gray-800 transition mt-2'
+                className='w-full rounded-full bg-black text-white py-3 text-sm font-medium cursor-pointer hover:text-black hover:bg-transparent border border-black transition mt-2'
               >
                 Proceed to Buy
               </button>
